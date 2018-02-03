@@ -3,41 +3,42 @@ package domain;
 import java.time.LocalDate;
 
 public class Invoice {
-    private Buyer buyer;
-    private Seller seller;
 
-    private int id;
-    private LocalDate date = LocalDate.now();
+  private Buyer buyer;
+  private Seller seller;
 
-    public Buyer getBuyer() {
-        return buyer;
-    }
+  private int id;
+  private LocalDate date = LocalDate.now();
 
-    public void setBuyer(Buyer buyer) {
-        this.buyer = buyer;
-    }
+  public Buyer getBuyer() {
+    return buyer;
+  }
 
-    public Seller getSeller() {
-        return seller;
-    }
+  public void setBuyer(Buyer buyer) {
+    this.buyer = buyer;
+  }
 
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
+  public Seller getSeller() {
+    return seller;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public void setSeller(Seller seller) {
+    this.seller = seller;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public LocalDate getDate() {
-        return date;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
+  public LocalDate getDate() {
+    return date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = date;
+  }
 }
