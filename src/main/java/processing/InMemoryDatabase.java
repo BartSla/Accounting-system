@@ -1,9 +1,9 @@
 package processing;
 
 import domain.Invoice;
-import persistence.DataBase;
+import persistence.Database;
 
-public class InMemoryDataBase implements DataBase {
+public class InMemoryDatabase implements Database {
 
   @Override
   public void saveInvoice(Invoice invoice) {

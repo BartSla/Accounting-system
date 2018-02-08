@@ -2,7 +2,7 @@ package persistence;
 
 import domain.Invoice;
 
-public interface DataBase {
+public interface Database {
 
   void saveInvoice(Invoice invoice);
 
