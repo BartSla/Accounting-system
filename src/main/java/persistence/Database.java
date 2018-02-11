@@ -6,10 +6,13 @@ public interface Database {
 
   void saveInvoice(Invoice invoice);
 
-  void getInvoiceById(Invoice invoice);
+  void getInvoices();
 
-  void getInvoices(Invoice invoice);
+  void getInvoiceById(int id);
 
   void updateInvoice(Invoice invoice);
 
+  void removeInvoice(Invoice invoice);
+
+  void removeInvoiceById(int id);
 }
