@@ -1,12 +1,13 @@
 package persistence;
 
 import domain.Invoice;
+import java.util.List;
 
 public interface Database {
 
   void saveInvoice(Invoice invoice);
 
-  void getInvoices();
+  List<Invoice> getInvoices();
 
   void getInvoiceById(int id);
 

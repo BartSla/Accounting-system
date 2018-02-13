@@ -33,15 +33,15 @@ public class InMemoryDatabase implements Database {
   }
 
   @Override
-  public void getInvoices() {
+  public List<Invoice> getInvoices() {
 
-    invoices.toArray();
+    return invoices;
   }
 
 
   @Override
-  public void getInvoiceById(int id) {
-    invoices.get(id);
+  public Invoice invoice getInvoiceById(int id) {
+    return invoices.get(id);
   }
 
   @Override
