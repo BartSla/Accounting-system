@@ -1,7 +1,6 @@
-package processing;
+package persistence;
 
 import domain.Invoice;
-import persistence.Database;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,28 +18,12 @@ public class InMemoryDatabase implements Database {
   }
 
   @Override
-  public void removeInvoice(Invoice invoice) {
-    if (invoices.contains(invoice)) {
-      invoices.remove(invoice);
-    }
-  }
-
-  @Override
-  public void removeInvoiceById(int id) {
-    if (id >= 0 && id < invoices.size()) {
-      invoices.remove(invoices.get(id));
-    }
-  }
-
-  @Override
   public List<Invoice> getInvoices() {
-
     return invoices;
   }
 
-
   @Override
-  public Invoice invoice getInvoiceById(int id) {
+  public Invoice getInvoiceById(int id) {
     return invoices.get(id);
   }
 
@@ -48,6 +31,13 @@ public class InMemoryDatabase implements Database {
   public void updateInvoice(Invoice invoice) {
     if (!invoices.contains(invoice)) {
       invoices.set(invoice.getId(), invoice);
+    }
+  }
+
+  @Override
+  public void removeInvoice(Invoice invoice) {
+    if (invoices.contains(invoice)) {
+      invoices.remove(invoice);
     }
   }
 }

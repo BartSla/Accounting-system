@@ -2,6 +2,7 @@ package processing;
 
 import domain.Invoice;
 import persistence.Database;
+import persistence.InMemoryDatabase;
 
 public class InvoiceBook {
 
@@ -17,10 +18,6 @@ public class InvoiceBook {
 
   public void getAllInvoices() {
     database.getInvoices();
-  }
-
-  private void removeInvoice(int id) {
-    database.removeInvoiceById(id);
   }
 
   public void updateInvoice(Invoice invoice) {
