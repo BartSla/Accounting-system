@@ -3,6 +3,8 @@ package persistence;
 import domain.Invoice;
 import java.util.List;
 
+import java.util.List;
+
 public interface Database {
 
   void saveInvoice(Invoice invoice);
