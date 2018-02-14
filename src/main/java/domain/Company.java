@@ -8,12 +8,15 @@ public class Company {
   private String city;
   private String postcode;
 
+  public Company(String name, String nip, String streetAndNumber, String city, String postcode) {
+  }
+
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
-    this.name = name;
+
   }
 
   public String getNip() {

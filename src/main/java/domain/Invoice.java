@@ -40,4 +40,14 @@ public class Invoice {
   public void setDate(LocalDate date) {
     this.date = date;
   }
+
+  public Invoice(Buyer buyer, Seller seller, int id, LocalDate date) {
+    this.buyer = buyer;
+    this.seller = seller;
+    this.id = id;
+    this.date = date;
+  }
+
+  public Invoice() {
+  }
 }
