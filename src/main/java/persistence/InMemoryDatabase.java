@@ -29,8 +29,11 @@ public class InMemoryDatabase implements Database {
 
   @Override
   public void updateInvoice(Invoice invoice) {
-    if (!invoices.contains(invoice)) {
-      invoices.set(invoice.getId(), invoice);
+    for (Invoice invoiceToFind : invoices) {
+      if (invoiceToFind.getId() == invoice.getId()) {
+        int index = invoices.indexOf(invoiceToFind);
+        invoices.set(index, invoice);
+      }
     }
   }
 
