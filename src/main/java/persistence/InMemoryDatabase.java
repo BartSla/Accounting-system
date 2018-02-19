@@ -36,8 +36,11 @@ public class InMemoryDatabase implements Database {
 
     @Override
     public void removeInvoice(Invoice invoice) {
-        if (invoices.contains(invoice)) {
-            invoices.remove(invoice);
+        for (Invoice invoiceToFind : invoices) {
+            if (invoiceToFind.getId() == invoice.getId()) {
+                int index = invoices.indexOf(invoiceToFind);
+                invoices.set(index, invoice);
+            }
         }
     }
 }
