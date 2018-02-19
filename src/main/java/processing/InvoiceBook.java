@@ -2,6 +2,7 @@ package processing;
 
 import domain.Invoice;
 import persistence.Database;
+import persistence.InMemoryDatabase;
 
 public class InvoiceBook {
 
