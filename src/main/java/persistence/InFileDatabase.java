@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Invoice;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +73,9 @@ public class InFileDatabase implements Database {
       }
     }
   }
+
+  @Override
+  public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
+    return null;
+  }
 }
-
-

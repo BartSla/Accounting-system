@@ -4,6 +4,8 @@ import domain.Invoice;
 import persistence.Database;
 import persistence.InMemoryDatabase;
 
+import java.time.LocalDate;
+
 public class InvoiceBook {
 
   Database database = new InMemoryDatabase();
@@ -26,5 +28,9 @@ public class InvoiceBook {
 
   public void updateInvoice(Invoice invoice) {
     database.updateInvoice(invoice);
+  }
+
+  public void getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate){
+    database.getAllInvoicesInDateRange(fromDate, toDate);
   }
 }

@@ -1,10 +1,9 @@
 package processing;
 
-import domain.Buyer;
 import domain.Invoice;
-import domain.Seller;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,107 +13,99 @@ public class InvoiceBookTest {
     @Test
     public void shouldAddNewInvoiceWorks() throws Exception {
         //given
-        Invoice invoice = new Invoice();
-        Buyer buyer = new Buyer();
-        Seller seller = new Seller();
-
-        invoice.setBuyer(buyer);
-        invoice.setSeller(seller);
-        invoice.setId(1);
-
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceBook book = new InvoiceBook();
 
         //when
-        book.addNewInvoice(invoice);
+        book.addNewInvoice(invoiceProvider.invoice);
 
         //then
-        assertEquals(book.database.getInvoiceById(0), invoice);
+        assertEquals(invoiceProvider.getlistof1invoices(), book.database.getInvoices());
     }
 
     @Test
     public void shouldRemoveInvoiceWorks() throws Exception {
         //given
-        Invoice invoice = new Invoice();
-        Invoice invoice2 = new Invoice();
-
-        invoice.setId(0);
-        invoice2.setId(1);
-
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceBook book = new InvoiceBook();
-        book.addNewInvoice(invoice);
-        book.addNewInvoice(invoice2);
+        book.addNewInvoice(invoiceProvider.invoice);
+        book.addNewInvoice(invoiceProvider.invoice1);
 
         //when
-        book.removeInvoice(invoice);
+        book.removeInvoice(invoiceProvider.invoice1);
 
         //then
-        assertEquals(book.database.getInvoiceById(0), invoice2);
+        assertEquals(invoiceProvider.getlistof1invoices(), book.database.getInvoices());
     }
 
     @Test
     public void shouldGetInvoiceByIdWorks() throws Exception {
         //given
-        Invoice invoice = new Invoice();
-        Invoice invoice2 = new Invoice();
-
-        invoice.setId(0);
-        invoice2.setId(1);
-
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceBook book = new InvoiceBook();
-        book.addNewInvoice(invoice);
-        book.addNewInvoice(invoice2);
+        book.addNewInvoice(invoiceProvider.invoice);
+        book.addNewInvoice(invoiceProvider.invoice1);
 
         //when
         book.getInvoiceById(1);
 
         //then
-        assertEquals(book.database.getInvoiceById(1), invoice2);
+        assertEquals(invoiceProvider.invoice1, book.database.getInvoiceById(1));
     }
 
     @Test
     public void shouldGetAllInvoicesWorks() throws Exception {
         //given
-        Invoice invoice = new Invoice();
-        Invoice invoice2 = new Invoice();
-
-        invoice.setId(0);
-        invoice2.setId(1);
-
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceBook book = new InvoiceBook();
-        book.addNewInvoice(invoice);
-        book.addNewInvoice(invoice2);
-
-        List<Invoice> expected = new ArrayList<>();
-        expected.add(invoice);
-        expected.add(invoice2);
+        book.addNewInvoice(invoiceProvider.invoice);
+        book.addNewInvoice(invoiceProvider.invoice1);
 
         //when
         book.getAllInvoices();
-        List<Invoice> invoices = book.database.getInvoices();
 
         //then
-        assertEquals(expected, invoices);
+        assertEquals(invoiceProvider.getlistof2invoices(), book.database.getInvoices());
     }
 
     @Test
     public void shouldUpdateInvoiceWorks() throws Exception {
         //given
-        Invoice invoice = new Invoice();
-        Invoice invoice2 = new Invoice();
-
-        invoice.setId(0);
-
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceBook book = new InvoiceBook();
-        book.addNewInvoice(invoice);
-
-        invoice2.setId(0);
+        book.addNewInvoice(invoiceProvider.invoice);
+        book.addNewInvoice(invoiceProvider.invoice1);
 
         //when
-        book.updateInvoice(invoice2);
-        book.database.updateInvoice(invoice2);
+        invoiceProvider.invoice3.setId(1);
+        book.updateInvoice(invoiceProvider.invoice3);
 
         //then
-        assertEquals(book.database.getInvoiceById(0), invoice2);
+        assertEquals(invoiceProvider.invoice3, book.database.getInvoiceById(1));
     }
 
+    @Test
+    public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
+        //given
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
+        InvoiceBook book = new InvoiceBook();
+        book.addNewInvoice(invoiceProvider.invoice);
+        book.addNewInvoice(invoiceProvider.invoice1);
+        book.addNewInvoice(invoiceProvider.invoice2);
+        book.addNewInvoice(invoiceProvider.invoice3);
+        book.addNewInvoice(invoiceProvider.invoice4);
+
+        List<Invoice> expected = new ArrayList<>();
+        expected.add(invoiceProvider.invoice2);
+        expected.add(invoiceProvider.invoice3);
+        expected.add(invoiceProvider.invoice4);
+
+        //when
+        book.getAllInvoicesInDateRange(LocalDate.of(2018, 2, 3),
+                LocalDate.of(2018, 2 ,9));
+
+        //then
+        assertEquals(expected, book.database.getAllInvoicesInDateRange(LocalDate.of(2018, 2, 3),
+                LocalDate.of(2018, 2 ,9)));
+    }
 }
