@@ -20,10 +20,6 @@ public class InvoiceBook {
     database.getInvoices();
   }
 
-  private void removeInvoice(int id) {
-    database.removeInvoiceById(id);
-  }
-
   public void updateInvoice(Invoice invoice) {
   }
 }
