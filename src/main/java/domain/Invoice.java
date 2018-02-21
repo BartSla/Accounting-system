@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Invoice {
 
-
   private Buyer buyer;
   private Seller seller;
   private int id;

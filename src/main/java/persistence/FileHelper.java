@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,15 +16,16 @@ class FileHelper {
   private File file = new File("resources/database.json");
 
   public void writeValueAsStringInFile(String invoice) throws IOException {
-    if (!file.exists()) {
-      try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+    if (file.exists()) {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
         writer.write(invoice);
         writer.newLine();
       }
-    }
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-      writer.write(invoice);
-      writer.newLine();
+    } else {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, false))) {
+        writer.write(invoice);
+        writer.newLine();
+      }
     }
   }
 
@@ -37,5 +39,9 @@ class FileHelper {
       }
     }
     return readLines;
+  }
+
+  public void deleteFile() {
+    file.delete();
   }
 }

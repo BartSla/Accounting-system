@@ -3,8 +3,8 @@ package persistence;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Invoice;
 
-
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +71,11 @@ public class InFileDatabase implements Database {
         getInvoices().remove(invoice);
       }
     }
+  }
+
+  @Override
+  public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
+    return null;
   }
 }
 
