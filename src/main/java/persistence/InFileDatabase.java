@@ -53,7 +53,7 @@ public class InFileDatabase implements Database {
 
   @Override
   public void updateInvoice(Invoice invoice) {
-
+    getInvoices();
     for (Invoice invoiceById : getInvoices()) {
       if (invoiceById.getId() == invoice.getId()) {
         getInvoices().remove(invoiceById);
@@ -63,7 +63,6 @@ public class InFileDatabase implements Database {
       saveInvoice(invoiceById);
     }
   }
-
   @Override
   public void removeInvoice(Invoice invoice) {
 
@@ -79,3 +78,4 @@ public class InFileDatabase implements Database {
     return null;
   }
 }
+

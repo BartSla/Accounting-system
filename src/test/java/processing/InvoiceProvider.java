@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InvoiceProvider {
-
     private Buyer buyer = new Buyer("ABC1", "896", "Nowa1", "Wroclaw", "55-120");
     private Buyer buyer1 = new Buyer("ABC2", "896", "Nowa1", "Wroclaw", "55-120");
     private Buyer buyer2 = new Buyer("ABC3", "896", "Nowa1", "Wroclaw", "55-120");
@@ -39,6 +38,7 @@ public class InvoiceProvider {
         invoices.add(invoice1);
         return invoices;
     }
+
 
     public List<Invoice> getlistof3invoices() {
         List<Invoice> invoices = new ArrayList<>();
