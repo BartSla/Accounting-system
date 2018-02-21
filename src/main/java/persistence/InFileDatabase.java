@@ -1,14 +1,14 @@
 package persistence;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Invoice;
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class InFileDatabase implements Database {
-
 
   private List<Invoice> invoices = new ArrayList();
   private FileHelper filehelper = new FileHelper();
@@ -54,10 +54,17 @@ public class InFileDatabase implements Database {
   @Override
   public void updateInvoice(Invoice invoice) {
     getInvoices();
-
+    for (Invoice invoiceById : getInvoices()) {
+      if (invoiceById.getId() == invoice.getId()) {
+        getInvoices().remove(invoiceById);
+        getInvoices().add(invoice);
+        filehelper.deleteFile();
+      }
+      saveInvoice(invoiceById);
+    }
+  }
   @Override
   public void removeInvoice(Invoice invoice) {
-
 
     for (Invoice invoiceForLoop : getInvoices()) {
       if (invoiceForLoop.equals(invoice)) {
@@ -66,4 +73,4 @@ public class InFileDatabase implements Database {
     }
   }
 }
-}
+

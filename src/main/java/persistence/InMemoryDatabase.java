@@ -32,6 +32,7 @@ public class InMemoryDatabase implements Database {
         if (!invoices.contains(invoice)) {
             invoices.set(invoice.getId(), invoice);
         }
+
     }
 
     @Override
