@@ -33,15 +33,6 @@ public class InMemoryDatabaseTest {
     }
 
     @Test
-    public void removeInvoiceById() throws Exception {
-        inMemoryDatabase.saveInvoice(invoiceProvider.invoice);
-        inMemoryDatabase.saveInvoice(invoiceProvider.invoice1);
-        inMemoryDatabase.removeInvoiceById(1);
-        assertEquals(invoiceProvider.getlistof1invoices(), inMemoryDatabase.getInvoices());
-
-    }
-
-    @Test
     public void getInvoices() throws Exception {
         inMemoryDatabase.saveInvoice(invoiceProvider.invoice);
         assertEquals(invoiceProvider.getlistof1invoices(), inMemoryDatabase.getInvoices());
