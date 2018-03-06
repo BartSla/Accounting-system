@@ -2,6 +2,9 @@ package persistence;
 
 import domain.Invoice;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import java.util.List;
 
 public interface Database {
@@ -15,4 +18,6 @@ public interface Database {
   void updateInvoice(Invoice invoice);
 
   void removeInvoice(Invoice invoice);
+
+  List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate);
 }
