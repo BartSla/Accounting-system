@@ -31,15 +31,15 @@ public class Idgenerator {
 
         try {
             new File("src//main//invNumber.txt");
-            PrintWriter zapis = new PrintWriter("src//main//invNumber.txt");
+            PrintWriter save = new PrintWriter("src//main//invNumber.txt");
             if (saveNewYear) {
-                zapis.println(0);
-                zapis.print(year);
+                save.println(0);
+                save.print(year);
             } else {
-                zapis.println(lastId + 1);
-                zapis.print(lastYear);
+                save.println(lastId + 1);
+                save.print(lastYear);
             }
-            zapis.close();
+            save.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,9 +57,9 @@ public class Idgenerator {
         newID = Integer.parseInt(result.get(0)) + 1;
         try {
             new File("src//main//id.txt");
-            PrintWriter zapis = new PrintWriter("src//main//id.txt");
-            zapis.print(newID);
-            zapis.close();
+            PrintWriter save = new PrintWriter("src//main//id.txt");
+            save.print(newID);
+            save.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

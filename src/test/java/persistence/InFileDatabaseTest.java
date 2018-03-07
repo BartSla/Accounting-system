@@ -50,14 +50,4 @@ public class InFileDatabaseTest {
         inFileDatabase.removeInvoice(invoiceProvider.invoice2);
         assertEquals(invoiceProvider.getlistof2invoices(),inFileDatabase.getInvoices());
     }
-
-    @Test
-    public void removeInvoiceById() throws Exception {
-        inFileDatabase.saveInvoice(invoiceProvider.invoice);
-        inFileDatabase.saveInvoice(invoiceProvider.invoice1);
-        inFileDatabase.saveInvoice(invoiceProvider.invoice2);
-        inFileDatabase.removeInvoiceById(3);
-        assertEquals(invoiceProvider.getlistof2invoices(),inFileDatabase.getInvoices());
-    }
-
 }
