@@ -1,15 +1,20 @@
 package persistence;
 
 import domain.Invoice;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Repository
 public class InMemoryDatabase implements Database {
 
-    private List<Invoice> invoices = new ArrayList<>();
+    private List<Invoice> invoices;
+
+    public InMemoryDatabase() {
+        this.invoices = new ArrayList<>();
+    }
 
     @Override
     public void saveInvoice(Invoice invoice) {
@@ -19,7 +24,7 @@ public class InMemoryDatabase implements Database {
     }
 
     @Override
-    public List<Invoice> getInvoices() {
+    public List<Invoice> getAllInvoices() {
         return invoices;
     }
 
@@ -39,19 +44,17 @@ public class InMemoryDatabase implements Database {
     }
 
     @Override
-    public void removeInvoice(Invoice invoice) {
-        if (invoices.contains(invoice)) {
-            invoices.remove(invoice);
-        }
+    public void removeInvoice(int id) {
+         invoices.remove(id);
     }
 
     @Override
     public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
         List<Invoice> invoicesInDateRange = new ArrayList<>();
-        for (Invoice invoiceToFind : invoices) {
-            if ((invoiceToFind.getDate().isAfter(fromDate) || invoiceToFind.getDate().isEqual(fromDate)) &&
-                    invoiceToFind.getDate().isBefore(toDate) || invoiceToFind.getDate().isEqual(toDate)) {
-                invoicesInDateRange.add(invoiceToFind);
+        for (Invoice toFind : invoices) {
+            if ((toFind.getDate().isAfter(fromDate) || toFind.getDate().isEqual(fromDate))
+                    && toFind.getDate().isBefore(toDate) || toFind.getDate().isEqual(toDate)) {
+                invoicesInDateRange.add(toFind);
             }
         }
         return invoicesInDateRange;
