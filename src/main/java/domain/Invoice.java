@@ -54,17 +54,6 @@ public class Invoice implements Visitable {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Invoice{" +
-                "buyer=" + buyer +
-                ", seller=" + seller +
-                ", id=" + id +
-                ", date=" + date +
-                ", entryList=" + entryList +
-                '}';
-    }
-
     public Invoice() {
     }
 
@@ -114,5 +103,16 @@ public class Invoice implements Visitable {
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (entryList != null ? entryList.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "buyer=" + buyer +
+                ", seller=" + seller +
+                ", id=" + id +
+                ", date=" + date +
+                ", entryList=" + entryList +
+                '}';
     }
 }

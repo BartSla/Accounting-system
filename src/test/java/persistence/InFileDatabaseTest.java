@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,13 +19,13 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void saveAndGetInvoice() throws Exception {
+    public void shouldSaveAndGetInvoiceWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         assertEquals(invoiceProvider.getListOf1Invoices(), inFileDatabase.getAllInvoices());
     }
 
     @Test
-    public void getInvoiceById() throws Exception {
+    public void shouldGetInvoiceByIdWorks() throws Exception {
     inFileDatabase.saveInvoice(invoiceProvider.invoice);
     inFileDatabase.saveInvoice(invoiceProvider.invoice1);
     inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -32,7 +33,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void updateInvoice() throws Exception {
+    public void shouldUpdateInvoiceWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -41,7 +42,18 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void removeInvoice() throws Exception {
+    public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
+        inFileDatabase.saveInvoice(invoiceProvider.invoice);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice1);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice2);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice3);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice4);
+        assertEquals(invoiceProvider.getListOf3invoices(),inFileDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1,30),
+                LocalDate.of(2018, 2,3)));
+    }
+
+    @Test
+    public void shouldRemoveInvoiceWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
