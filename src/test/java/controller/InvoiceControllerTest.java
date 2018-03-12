@@ -4,7 +4,7 @@ import domain.Invoice;
 import org.junit.Test;
 import persistence.InMemoryDatabase;
 import processing.InvoiceBook;
-import processing.InvoiceProvider;
+import persistence.InvoiceProvider;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

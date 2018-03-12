@@ -1,5 +1,6 @@
 package persistence;
 
+import config.ObjectMapperProvider;
 import domain.Invoice;
 
 import java.io.IOException;
@@ -9,7 +10,6 @@ import java.util.List;
 
 public class InFileDatabase implements Database {
 
-    private List<Invoice> invoices = new ArrayList<>();
     private FileHelper filehelper = new FileHelper();
     private ObjectMapperProvider mapper = new ObjectMapperProvider();
 
@@ -17,7 +17,7 @@ public class InFileDatabase implements Database {
     public void saveInvoice(Invoice invoice) {
         if (invoice != null) {
             try {
-                String jsonInString = mapper.mapperProvider().writeValueAsString(invoice);
+                String jsonInString = mapper.objectMapper().writeValueAsString(invoice);
                 filehelper.writeValueAsStringInFile(jsonInString);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -27,10 +27,11 @@ public class InFileDatabase implements Database {
 
     @Override
     public List<Invoice> getAllInvoices() {
+        List<Invoice> invoices = new ArrayList<>();
         try {
             List<String> stringInvoices = filehelper.readValueFromJsonString();
             for (String item : stringInvoices) {
-                invoices.add(mapper.mapperProvider().readValue(item, Invoice.class));
+                invoices.add(mapper.objectMapper().readValue(item, Invoice.class));
             }
 
         } catch (IOException e) {
@@ -44,7 +45,7 @@ public class InFileDatabase implements Database {
         Invoice invoiceById = new Invoice();
         for (Invoice invoice : getAllInvoices()) {
             if (invoice.getId() == id) {
-                invoiceById = getAllInvoices().get(id);
+                invoiceById = invoice;
             }
         }
         return invoiceById;
@@ -52,11 +53,12 @@ public class InFileDatabase implements Database {
 
     @Override
     public void updateInvoice(Invoice invoice) {
-        for (Invoice invoiceById : getAllInvoices()) {
+        List<Invoice> invoices = getAllInvoices();
+        filehelper.deleteFile();
+        for (Invoice invoiceById : invoices) {
             if (invoiceById.getId() == invoice.getId()) {
-                getAllInvoices().remove(invoiceById);
-                getAllInvoices().add(invoice);
-                filehelper.deleteFile();
+                saveInvoice(invoice);
+                continue;
             }
             saveInvoice(invoiceById);
         }
@@ -64,10 +66,13 @@ public class InFileDatabase implements Database {
 
     @Override
     public void removeInvoice(int id) {
-        for (Invoice invoiceForLoop : getAllInvoices()) {
-            if (invoiceForLoop.getId() == id) {
-                getAllInvoices().remove(id);
+        List<Invoice> invoices = getAllInvoices();
+        filehelper.deleteFile();
+        for (Invoice invoiceById : invoices) {
+            if (invoiceById.getId() == id) {
+                continue;
             }
+            saveInvoice(invoiceById);
         }
     }
 
@@ -84,3 +89,4 @@ public class InFileDatabase implements Database {
         return invoicesInDateRange;
     }
 }
+

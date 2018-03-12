@@ -3,6 +3,7 @@ package processing;
 import domain.Invoice;
 import org.junit.Test;
 import persistence.InMemoryDatabase;
+import persistence.InvoiceProvider;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package processing;
+package persistence;
 
 import domain.Buyer;
 import domain.Invoice;
@@ -40,7 +40,7 @@ public class InvoiceProvider {
         return invoices;
     }
 
-    public List<Invoice> getListOf3Invoices() {
+    public List<Invoice> getListOf3invoices() {
         List<Invoice> invoices = new ArrayList<>();
         invoices.add(invoice);
         invoices.add(invoice1);

@@ -1,3 +1,4 @@
+import config.ObjectMapperProvider;
 import controller.InvoiceController;
 import domain.Invoice;
 import org.junit.Before;
@@ -12,7 +13,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import persistence.ObjectMapperProvider;
 import processing.InvoiceBook;
 
 import java.time.LocalDate;
@@ -116,7 +116,7 @@ public class ApplicationTest {
 
     public static String asJsonString(final Object obj) {
         try {
-            return new ObjectMapperProvider().mapperProvider().writeValueAsString(obj);
+            return new ObjectMapperProvider().objectMapper().writeValueAsString(obj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
