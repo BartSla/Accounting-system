@@ -14,7 +14,7 @@ public class FileHelperTest {
     private FileHelper fileHelper = new FileHelper();
 
     @Before
-    public void beforeTest(){
+    public void beforeTest() {
         new File("src/test/resources/database.json").delete();
     }
 

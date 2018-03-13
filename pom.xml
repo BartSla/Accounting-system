@@ -113,7 +113,6 @@
                 <version>0.7.9</version>
                 <executions>
                     <execution>
-
                         <id>jacoco-report</id>
                         <phase>test</phase>
                         <goals>
@@ -121,7 +120,6 @@
                         </goals>
                     </execution>
                     <execution>
-
                         <id>default-prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
@@ -135,29 +133,18 @@
                         <configuration>
                             <rules>
                                 <rule>
-
                                     <element>BUNDLE</element>
-                                    <element>CLASS</element>
-
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
                                             <minimum>0.80</minimum>
                                         </limit>
-
                                         <limit>
                                             <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
                                             <minimum>0.50</minimum>
                                         </limit>
-
-                                        <!--<limit>-->
-                                        <!--<counter>BRANCH</counter>-->
-                                        <!--<value>COVEREDRATIO</value>-->
-                                        <!--<minimum>0.80</minimum>-->
-                                        <!--</limit>-->
-
                                     </limits>
                                     <excludes>
                                         <exclude>database.impl.ConfigurationProvider</exclude>

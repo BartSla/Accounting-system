@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 public class InMemoryDatabaseTest {
 
-    InMemoryDatabase inMemoryDatabase;
-    InvoiceProvider invoiceProvider;
+    private InMemoryDatabase inMemoryDatabase;
+    private InvoiceProvider invoiceProvider;
 
     @Before
     public void setUp() throws Exception {
@@ -20,7 +20,6 @@ public class InMemoryDatabaseTest {
     public void saveInvoice() throws Exception {
         inMemoryDatabase.saveInvoice(invoiceProvider.invoice);
         assertEquals(invoiceProvider.getListOf1Invoices(), inMemoryDatabase.getAllInvoices());
-
     }
 
     @Test
@@ -29,8 +28,6 @@ public class InMemoryDatabaseTest {
         inMemoryDatabase.saveInvoice(invoiceProvider.invoice1);
         inMemoryDatabase.removeInvoice(1);
         assertEquals(invoiceProvider.getListOf1Invoices(), inMemoryDatabase.getAllInvoices());
-
-
     }
 
     @Test
@@ -50,7 +47,6 @@ public class InMemoryDatabaseTest {
     public void updateInvoice() throws Exception {
         inMemoryDatabase.saveInvoice(invoiceProvider.invoice);
         inMemoryDatabase.updateInvoice(invoiceProvider.invoice);
-        assertEquals(invoiceProvider.getListOf1Invoices(),inMemoryDatabase.getAllInvoices());
+        assertEquals(invoiceProvider.getListOf1Invoices(), inMemoryDatabase.getAllInvoices());
     }
-
 }

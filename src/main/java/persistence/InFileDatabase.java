@@ -89,4 +89,3 @@ public class InFileDatabase implements Database {
         return invoicesInDateRange;
     }
 }
-

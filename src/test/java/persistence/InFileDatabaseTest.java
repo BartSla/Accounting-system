@@ -14,7 +14,7 @@ public class InFileDatabaseTest {
     private InFileDatabase inFileDatabase = new InFileDatabase();
 
     @Before
-    public void beforeTest(){
+    public void beforeTest() {
         new File("src/test/resources/database.json").delete();
     }
 
@@ -26,10 +26,10 @@ public class InFileDatabaseTest {
 
     @Test
     public void shouldGetInvoiceByIdWorks() throws Exception {
-    inFileDatabase.saveInvoice(invoiceProvider.invoice);
-    inFileDatabase.saveInvoice(invoiceProvider.invoice1);
-    inFileDatabase.saveInvoice(invoiceProvider.invoice2);
-    assertEquals(invoiceProvider.invoice,inFileDatabase.getInvoiceById(0));
+        inFileDatabase.saveInvoice(invoiceProvider.invoice);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice1);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice2);
+        assertEquals(invoiceProvider.invoice, inFileDatabase.getInvoiceById(0));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class InFileDatabaseTest {
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
         inFileDatabase.updateInvoice(invoiceProvider.invoice1);
-        assertEquals(invoiceProvider.invoice1 ,inFileDatabase.getInvoiceById(1));
+        assertEquals(invoiceProvider.invoice1, inFileDatabase.getInvoiceById(1));
     }
 
     @Test
@@ -48,8 +48,8 @@ public class InFileDatabaseTest {
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
         inFileDatabase.saveInvoice(invoiceProvider.invoice3);
         inFileDatabase.saveInvoice(invoiceProvider.invoice4);
-        assertEquals(invoiceProvider.getListOf3invoices(),inFileDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1,30),
-                LocalDate.of(2018, 2,3)));
+        assertEquals(invoiceProvider.getListOf3invoices(), inFileDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 30),
+                LocalDate.of(2018, 2, 3)));
     }
 
     @Test
@@ -58,6 +58,7 @@ public class InFileDatabaseTest {
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
         inFileDatabase.removeInvoice(2);
-        assertEquals(invoiceProvider.getListOf2Invoices(),inFileDatabase.getAllInvoices());
+        assertEquals(invoiceProvider.getListOf2Invoices(), inFileDatabase.getAllInvoices());
+
     }
 }

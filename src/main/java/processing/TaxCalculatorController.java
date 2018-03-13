@@ -14,8 +14,8 @@ public class TaxCalculatorController {
     private BigDecimal costs = new BigDecimal(0);
     private BigDecimal income_cost = new BigDecimal(0);
 
-    InFileDatabase inFileDatabase = new InFileDatabase();
-    TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
+    private InFileDatabase inFileDatabase = new InFileDatabase();
+    private TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
 
     public List<BigDecimal> calculateTaxes() {
         for (int i = 0; i < inFileDatabase.getAllInvoices().size(); i++) {
