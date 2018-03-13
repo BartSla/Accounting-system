@@ -38,5 +38,4 @@ public class FileHelperTest {
         fileHelper.deleteFile();
         assertFalse(new File("src/test/resources/database.json").exists());
     }
-
 }
