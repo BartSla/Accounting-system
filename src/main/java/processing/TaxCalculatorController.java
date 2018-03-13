@@ -7,18 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaxCalculatorController {
+
     private BigDecimal incomeVat = new BigDecimal(0);
     private BigDecimal outcomeVat = new BigDecimal(0);
     private BigDecimal income = new BigDecimal(0);
     private BigDecimal costs = new BigDecimal(0);
     private BigDecimal income_cost = new BigDecimal(0);
 
-    InFileDatabase inFileDatabase = new InFileDatabase();
-    TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
-    public List<BigDecimal> calculateTaxes(){
-        for (int i = 0; i < inFileDatabase.getInvoices().size(); i++) {
+    private InFileDatabase inFileDatabase = new InFileDatabase();
+    private TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
+
+    public List<BigDecimal> calculateTaxes() {
+        for (int i = 0; i < inFileDatabase.getAllInvoices().size(); i++) {
             List<BigDecimal> temp;
-            taxCalculatorService.visit(inFileDatabase.getInvoices().get(i));
+            taxCalculatorService.visit(inFileDatabase.getAllInvoices().get(i));
             temp = taxCalculatorService.getValuesOfVatAndTurnover();
             incomeVat = incomeVat.add(temp.get(0));
             outcomeVat = outcomeVat.add(temp.get(1));

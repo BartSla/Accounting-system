@@ -11,13 +11,13 @@ public interface Database {
 
   void saveInvoice(Invoice invoice);
 
-  List<Invoice> getInvoices();
+  List<Invoice> getAllInvoices();
 
   Invoice getInvoiceById(int id);
 
   void updateInvoice(Invoice invoice);
 
-  void removeInvoice(Invoice invoice);
+  void removeInvoice(int id);
 
   List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate);
 }

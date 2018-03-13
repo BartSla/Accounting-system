@@ -48,4 +48,6 @@ public class InvoiceEntry {
         this.grossValue = grossValue;
     }
 
+    public InvoiceEntry() {
+    }
 }

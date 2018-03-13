@@ -1,6 +1,6 @@
 package persistence;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import config.ObjectMapperProvider;
 import domain.Invoice;
 
 import java.io.IOException;
@@ -10,72 +10,82 @@ import java.util.List;
 
 public class InFileDatabase implements Database {
 
-  private List<Invoice> invoices = new ArrayList();
-  private FileHelper filehelper = new FileHelper();
-  private ObjectMapper mapper = new ObjectMapper();
+    private FileHelper filehelper = new FileHelper();
+    private ObjectMapperProvider mapper = new ObjectMapperProvider();
 
-  @Override
-  public void saveInvoice(Invoice invoice) {
-    if (invoice != null) {
-      try {
-        String jsonInString = mapper.writeValueAsString(invoice);
-        filehelper.writeValueAsStringInFile(jsonInString);
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+    @Override
+    public void saveInvoice(Invoice invoice) {
+        if (invoice != null) {
+            try {
+                String jsonInString = mapper.objectMapper().writeValueAsString(invoice);
+                filehelper.writeValueAsStringInFile(jsonInString);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
-  }
 
-  @Override
-  public List<Invoice> getInvoices() {
-    try {
-      List<String> stringInvoices = filehelper.readValueFromJsonString();
-      for (String item : stringInvoices) {
-        invoices.add(mapper.readValue(item, Invoice.class));
-      }
+    @Override
+    public List<Invoice> getAllInvoices() {
+        List<Invoice> invoices = new ArrayList<>();
+        try {
+            List<String> stringInvoices = filehelper.readValueFromJsonString();
+            for (String item : stringInvoices) {
+                invoices.add(mapper.objectMapper().readValue(item, Invoice.class));
+            }
 
-    } catch (IOException e) {
-      e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return invoices;
     }
-    return invoices;
-  }
 
-  @Override
-  public Invoice getInvoiceById(int id) {
-    Invoice invoiceById = new Invoice();
-    for (Invoice invoice : getInvoices()) {
-      if (invoice.getId() == id) {
-        invoiceById = getInvoices().get(id);
-      }
+    @Override
+    public Invoice getInvoiceById(int id) {
+        Invoice invoiceById = new Invoice();
+        for (Invoice invoice : getAllInvoices()) {
+            if (invoice.getId() == id) {
+                invoiceById = invoice;
+            }
+        }
+        return invoiceById;
     }
-    return invoiceById;
-  }
 
-  @Override
-  public void updateInvoice(Invoice invoice) {
-    getInvoices();
-    for (Invoice invoiceById : getInvoices()) {
-      if (invoiceById.getId() == invoice.getId()) {
-        getInvoices().remove(invoiceById);
-        getInvoices().add(invoice);
+    @Override
+    public void updateInvoice(Invoice invoice) {
+        List<Invoice> invoices = getAllInvoices();
         filehelper.deleteFile();
-      }
-      saveInvoice(invoiceById);
+        for (Invoice invoiceById : invoices) {
+            if (invoiceById.getId() == invoice.getId()) {
+                saveInvoice(invoice);
+                continue;
+            }
+            saveInvoice(invoiceById);
+        }
     }
-  }
-  @Override
-  public void removeInvoice(Invoice invoice) {
 
-    for (Invoice invoiceForLoop : getInvoices()) {
-      if (invoiceForLoop.equals(invoice)) {
-        getInvoices().remove(invoice);
-      }
+    @Override
+    public void removeInvoice(int id) {
+        List<Invoice> invoices = getAllInvoices();
+        filehelper.deleteFile();
+        for (Invoice invoiceById : invoices) {
+            if (invoiceById.getId() == id) {
+                continue;
+            }
+            saveInvoice(invoiceById);
+        }
     }
-  }
 
-  @Override
-  public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
-    return null;
-  }
+    @Override
+    public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
+        List<Invoice> invoicesInDateRange = new ArrayList<>();
+        for (Invoice invoice : getAllInvoices()) {
+            if (invoice.getDate().isAfter(fromDate) || invoice.getDate().isEqual(fromDate)) {
+                if (invoice.getDate().isBefore(toDate) || invoice.getDate().isEqual(toDate)) {
+                    invoicesInDateRange.add(invoice);
+                }
+            }
+        }
+        return invoicesInDateRange;
+    }
 }
-
