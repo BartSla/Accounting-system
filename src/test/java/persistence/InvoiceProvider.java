@@ -40,7 +40,7 @@ public class InvoiceProvider {
         return invoices;
     }
 
-    public List<Invoice> getListOf3invoices() {
+    public List<Invoice> getListOf3Invoices() {
         List<Invoice> invoices = new ArrayList<>();
         invoices.add(invoice);
         invoices.add(invoice1);

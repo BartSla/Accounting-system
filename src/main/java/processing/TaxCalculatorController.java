@@ -28,7 +28,6 @@ public class TaxCalculatorController {
             costs = costs.add(temp.get(3));
             temp.clear();
         }
-
         List<BigDecimal> temp2 = new ArrayList<>();
         income_cost = income.subtract(costs);
         temp2.add(incomeVat);
