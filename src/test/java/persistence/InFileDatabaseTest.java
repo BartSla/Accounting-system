@@ -1,63 +1,63 @@
 package persistence;
 
-import junitparams.JUnitParamsRunner;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import java.io.File;
+import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(JUnitParamsRunner.class)
 public class InFileDatabaseTest {
 
-    InvoiceProvider invoiceProvider = new InvoiceProvider();
-    InFileDatabase inFileDatabase = new InFileDatabase();
-    FileHelper fileHelper = new FileHelper();
+    private InvoiceProvider invoiceProvider = new InvoiceProvider();
+    private InFileDatabase inFileDatabase = new InFileDatabase();
+
+    @Before
+    public void beforeTest() {
+        new File("src/test/resources/database.json").delete();
+    }
 
     @Test
-    public void saveInvoice() throws Exception {
+    public void shouldSaveAndGetInvoiceWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
-        assertEquals(invoiceProvider.getlistof1invoices(), inFileDatabase.getInvoices());
+        assertEquals(invoiceProvider.getListOf1Invoices(), inFileDatabase.getAllInvoices());
     }
 
     @Test
-    public void getInvoices() throws Exception {
-        inFileDatabase.saveInvoice(invoiceProvider.invoice);
-        assertEquals(invoiceProvider.getlistof1invoices(), inFileDatabase.getInvoices());
-    }
-
-    @Test
-    public void getInvoiceById() throws Exception {
-    inFileDatabase.saveInvoice(invoiceProvider.invoice);
-    inFileDatabase.saveInvoice(invoiceProvider.invoice1);
-    inFileDatabase.saveInvoice(invoiceProvider.invoice2);
-    assertEquals(invoiceProvider.invoice1,inFileDatabase.getInvoiceById(2));
-    }
-
-    @Test
-    public void updateInvoice() throws Exception {
+    public void shouldGetInvoiceByIdWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
-        inFileDatabase.updateInvoice(invoiceProvider.invoiceid1);
-        assertEquals(invoiceProvider.invoiceid1,inFileDatabase.getInvoiceById(1));
+        assertEquals(invoiceProvider.invoice, inFileDatabase.getInvoiceById(0));
     }
 
     @Test
-    public void removeInvoice() throws Exception {
+    public void shouldUpdateInvoiceWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
-        inFileDatabase.removeInvoice(invoiceProvider.invoice2);
-        assertEquals(invoiceProvider.getlistof2invoices(),inFileDatabase.getInvoices());
+        inFileDatabase.updateInvoice(invoiceProvider.invoice1);
+        assertEquals(invoiceProvider.invoice1, inFileDatabase.getInvoiceById(1));
     }
 
     @Test
-    public void removeInvoiceById() throws Exception {
+    public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
-        inFileDatabase.removeInvoiceById(3);
-        assertEquals(invoiceProvider.getlistof2invoices(),inFileDatabase.getInvoices());
+        inFileDatabase.saveInvoice(invoiceProvider.invoice3);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice4);
+        assertEquals(invoiceProvider.getListOf3Invoices(), inFileDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 30),
+                LocalDate.of(2018, 2, 3)));
     }
 
+    @Test
+    public void shouldRemoveInvoiceWorks() throws Exception {
+        inFileDatabase.saveInvoice(invoiceProvider.invoice);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice1);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice2);
+        inFileDatabase.removeInvoice(2);
+        assertEquals(invoiceProvider.getListOf2Invoices(), inFileDatabase.getAllInvoices());
+    }
 }

@@ -1,36 +1,42 @@
 package processing;
 
 import domain.Invoice;
+import org.springframework.stereotype.Service;
 import persistence.Database;
-import persistence.InMemoryDatabase;
 
 import java.time.LocalDate;
+import java.util.List;
 
+@Service
 public class InvoiceBook {
 
-  Database database = new InMemoryDatabase();
+  private Database database;
+
+  public InvoiceBook(Database database) {
+      this.database = database;
+  }
 
   public void addNewInvoice(Invoice invoice) {
     database.saveInvoice(invoice);
   }
 
-  public void removeInvoice(Invoice invoice) {
-    database.removeInvoice(invoice);
+  public void removeInvoice(int id) {
+    database.removeInvoice(id);
   }
 
-  public void getInvoiceById(int id) {
-    database.getInvoiceById(id);
+  public Invoice getInvoiceById(int id) {
+    return database.getInvoiceById(id);
   }
 
-  public void getAllInvoices() {
-    database.getInvoices();
+  public List<Invoice> getAllInvoices() {
+    return database.getAllInvoices();
   }
 
   public void updateInvoice(Invoice invoice) {
     database.updateInvoice(invoice);
   }
 
-  public void getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate){
-    database.getAllInvoicesInDateRange(fromDate, toDate);
+  public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
+    return database.getAllInvoicesInDateRange(fromDate, toDate);
   }
 }
