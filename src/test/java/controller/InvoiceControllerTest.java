@@ -18,11 +18,13 @@ public class InvoiceControllerTest {
     public void shouldGetAllInvoicesWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  `new InvoiceBook` nor `new InMemoryDatabase` in here - all the tests should use mocks! (you test Controller in separation from dependency classes!)
         InvoiceController controller = new InvoiceController(new InvoiceBook(new InMemoryDatabase()));
         controller.addInvoice(invoiceProvider.invoice);
         controller.addInvoice(invoiceProvider.invoice1);
 
         //when
+        //FIXME: what is tested in here? when is empty...
 
         //then
         assertEquals(invoiceProvider.getListOf2Invoices(), controller.getAllInvoices());
@@ -32,11 +34,13 @@ public class InvoiceControllerTest {
     public void shouldGetInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  `new InvoiceBook` nor `new InMemoryDatabase` in here - all the tests should use mocks! (you test Controller in separation from dependency classes!)
         InvoiceController controller = new InvoiceController(new InvoiceBook(new InMemoryDatabase()));
         controller.addInvoice(invoiceProvider.invoice);
         controller.addInvoice(invoiceProvider.invoice1);
 
         //when
+        //FIXME: what is tested in here? when is empty...
 
         //then
         assertEquals(invoiceProvider.invoice1, controller.getInvoice(1));
@@ -46,6 +50,7 @@ public class InvoiceControllerTest {
     public void updateInvoice() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  `new InvoiceBook` nor `new InMemoryDatabase` in here - all the tests should use mocks! (you test Controller in separation from dependency classes!)
         InvoiceController controller = new InvoiceController(new InvoiceBook(new InMemoryDatabase()));
         controller.addInvoice(invoiceProvider.invoice);
         controller.addInvoice(invoiceProvider.invoice1);
@@ -62,6 +67,7 @@ public class InvoiceControllerTest {
     public void shouldDeleteInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  `new InvoiceBook` nor `new InMemoryDatabase` in here - all the tests should use mocks! (you test Controller in separation from dependency classes!)
         InvoiceController controller = new InvoiceController(new InvoiceBook(new InMemoryDatabase()));
         controller.addInvoice(invoiceProvider.invoice);
         controller.addInvoice(invoiceProvider.invoice1);
@@ -77,6 +83,7 @@ public class InvoiceControllerTest {
     public void shouldAddInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  `new InvoiceBook` nor `new InMemoryDatabase` in here - all the tests should use mocks! (you test Controller in separation from dependency classes!)
         InvoiceController controller = new InvoiceController(new InvoiceBook(new InMemoryDatabase()));
 
         //when
@@ -90,6 +97,7 @@ public class InvoiceControllerTest {
     public void shouldGetInvoicesInDataRangeWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  `new InvoiceBook` nor `new InMemoryDatabase` in here - all the tests should use mocks! (you test Controller in separation from dependency classes!)
         InvoiceController controller = new InvoiceController(new InvoiceBook(new InMemoryDatabase()));
         controller.addInvoice(invoiceProvider.invoice);
         controller.addInvoice(invoiceProvider.invoice1);
@@ -103,6 +111,7 @@ public class InvoiceControllerTest {
         expected.add(invoiceProvider.invoice4);
 
         //when
+        //FIXME: what is tested in here? when is empty...
 
         //then
         assertEquals(expected, controller.getInvoicesInDateRange(LocalDate.of(2018, 2, 3),

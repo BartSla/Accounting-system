@@ -33,6 +33,8 @@ public class ApplicationTest {
     @Autowired
     private MockMvc mockMvc;
 
+    //FIXME: no - in here there should not be mocks - this is integration test - it should run on production application configuration. The only change may/should be on database level
+    //if you have File database configuraiton, you should have separate one for this test to not write on production DB - just on test one
     @MockBean
     private InvoiceBook invoiceBook;
 

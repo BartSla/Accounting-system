@@ -17,6 +17,7 @@ public class InvoiceBookTest {
     public void shouldAddNewInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
         InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
 
         //when
@@ -30,6 +31,7 @@ public class InvoiceBookTest {
     public void shouldRemoveInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
         InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
         book.addNewInvoice(invoiceProvider.invoice);
         book.addNewInvoice(invoiceProvider.invoice1);
@@ -45,11 +47,13 @@ public class InvoiceBookTest {
     public void shouldGetInvoiceByIdWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
         InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
         book.addNewInvoice(invoiceProvider.invoice);
         book.addNewInvoice(invoiceProvider.invoice1);
 
         //when
+//FIXME: what is tested in here? when is empty...
 
         //then
         assertEquals(invoiceProvider.invoice1, book.getInvoiceById(1));
@@ -59,11 +63,13 @@ public class InvoiceBookTest {
     public void shouldGetAllInvoicesWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
         InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
         book.addNewInvoice(invoiceProvider.invoice);
         book.addNewInvoice(invoiceProvider.invoice1);
 
         //when
+//FIXME: what is tested in here? when is empty...
 
         //then
         assertEquals(invoiceProvider.getListOf2Invoices(), book.getAllInvoices());
@@ -73,6 +79,7 @@ public class InvoiceBookTest {
     public void shouldUpdateInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
         InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
         book.addNewInvoice(invoiceProvider.invoice);
         book.addNewInvoice(invoiceProvider.invoice1);
@@ -89,6 +96,7 @@ public class InvoiceBookTest {
     public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
+        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
         InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
         book.addNewInvoice(invoiceProvider.invoice);
         book.addNewInvoice(invoiceProvider.invoice1);
@@ -102,6 +110,7 @@ public class InvoiceBookTest {
         expected.add(invoiceProvider.invoice4);
 
         //when
+//FIXME: what is tested in here? when is empty...
 
         //then
         assertEquals(expected, book.getAllInvoicesInDateRange(LocalDate.of(2018, 2, 3),
