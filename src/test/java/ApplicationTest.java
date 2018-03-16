@@ -1,6 +1,3 @@
-import config.ObjectMapperProvider;
-import controller.InvoiceController;
-import domain.Invoice;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +10,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import processing.InvoiceBook;
+import pl.coderstrust.Application;
+import pl.coderstrust.config.ObjectMapperProvider;
+import pl.coderstrust.controller.InvoiceController;
+import pl.coderstrust.domain.Invoice;
+import pl.coderstrust.processing.InvoiceBook;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -26,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = InvoiceController.class)
+@SpringBootTest(classes = Application.class)
 @AutoConfigureMockMvc
 public class ApplicationTest {
 
