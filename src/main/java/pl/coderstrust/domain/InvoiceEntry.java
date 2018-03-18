@@ -41,6 +41,7 @@ public class InvoiceEntry {
         this.grossValue = grossValue;
     }
 
+    //TODO: Is it used by anybody? If no, please remove it.
     public InvoiceEntry(String name, Vat vat, Double nettValue, Double grossValue) {
         this.name = name;
         this.vat = vat;
@@ -48,6 +49,7 @@ public class InvoiceEntry {
         this.grossValue = grossValue;
     }
 
+    //TODO: Is it used by anybody? If no, please remove it.
     public InvoiceEntry() {
     }
 }

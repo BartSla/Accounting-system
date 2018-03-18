@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
+//TODO: The class is not used - if not needed, please remove. If needed, please rename to proper camel case: `IdGenerator`
 public class Idgenerator {
     public String invoiceNumber() {
         int lastId, lastYear, year;

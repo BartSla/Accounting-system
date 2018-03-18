@@ -77,6 +77,7 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
+    //FIXME: it should return double (or BigDecimal)
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }

@@ -8,6 +8,7 @@ public class Company {
     private String city;
     private String postcode;
 
+    //FIXME: you do not assign values in this constructor, so it is not working at all. Please fix it.
     public Company(String name, String nip, String streetAndNumber, String city, String postcode) {
     }
 
@@ -66,10 +67,12 @@ public class Company {
         this.nip = nip;
     }
 
+    //FIXME: rename the method to be a proper getter
     public String streetAndNumber() {
         return streetAndNumber;
     }
 
+    //FIXME: rename the method to be a proper setter
     public void streetAndNumber(String streetAndNumber) {
         this.streetAndNumber = streetAndNumber;
     }

@@ -5,6 +5,7 @@ public class Buyer extends Company {
         super(name,nip,streetAndNumber,city,postcode);
     }
 
+    //TODO: Is it used by anybody? If no, please remove it.
     public Buyer() {
     }
 
