@@ -1,3 +1,5 @@
+package pl.coderstrust;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import pl.coderstrust.Application;
 import pl.coderstrust.config.ObjectMapperProvider;
 import pl.coderstrust.controller.InvoiceController;
 import pl.coderstrust.domain.Invoice;
@@ -34,8 +35,6 @@ public class ApplicationTest {
     @Autowired
     private MockMvc mockMvc;
 
-    //FIXME: no - in here there should not be mocks - this is integration test - it should run on production application configuration. The only change may/should be on database level
-    //if you have File database configuraiton, you should have separate one for this test to not write on production DB - just on test one
     @MockBean
     private InvoiceBook invoiceBook;
 

@@ -1,8 +1,12 @@
 package pl.coderstrust.processing;
 
-import pl.coderstrust.domain.Invoice;
 import org.junit.Test;
-import pl.coderstrust.persistence.InMemoryDatabase;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+import pl.coderstrust.domain.Invoice;
+import pl.coderstrust.persistence.Database;
 import pl.coderstrust.persistence.InvoiceProvider;
 
 import java.time.LocalDate;
@@ -10,110 +14,114 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class InvoiceBookTest {
+
+    @Mock
+    private Database database;
 
     @Test
     public void shouldAddNewInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
-        InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
+        InvoiceBook invoiceBook = new InvoiceBook(database);
+        List<Invoice> invoices = new ArrayList<>();
 
         //when
-        book.addNewInvoice(invoiceProvider.invoice);
+        Mockito.doNothing().when(database).saveInvoice(invoiceProvider.invoice);
+        invoiceBook.addNewInvoice(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice);
 
         //then
-        assertEquals(invoiceProvider.getListOf1Invoices(), book.getAllInvoices());
+        assertEquals(invoiceProvider.getListOf1Invoices(), invoices);
     }
 
     @Test
     public void shouldRemoveInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
-        InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
-        book.addNewInvoice(invoiceProvider.invoice);
-        book.addNewInvoice(invoiceProvider.invoice1);
+        InvoiceBook invoiceBook = new InvoiceBook(database);
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice1);
 
         //when
-        book.removeInvoice(1);
+        Mockito.doNothing().when(database).removeInvoice(1);
+        invoiceBook.removeInvoice(1);
+        invoices.remove(1);
 
         //then
-        assertEquals(invoiceProvider.getListOf1Invoices(), book.getAllInvoices());
+        assertEquals(invoiceProvider.getListOf1Invoices(), invoices);
     }
 
     @Test
     public void shouldGetInvoiceByIdWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
-        InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
-        book.addNewInvoice(invoiceProvider.invoice);
-        book.addNewInvoice(invoiceProvider.invoice1);
+        InvoiceBook invoiceBook = new InvoiceBook(database);
 
         //when
-//FIXME: what is tested in here? when is empty...
+        when(database.getInvoiceById(1)).thenReturn(invoiceProvider.invoice1);
 
         //then
-        assertEquals(invoiceProvider.invoice1, book.getInvoiceById(1));
+        assertEquals(invoiceProvider.invoice1, invoiceBook.getInvoiceById(1));
     }
 
     @Test
     public void shouldGetAllInvoicesWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
-        InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
-        book.addNewInvoice(invoiceProvider.invoice);
-        book.addNewInvoice(invoiceProvider.invoice1);
+        InvoiceBook invoiceBook = new InvoiceBook(database);
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice1);
 
         //when
-//FIXME: what is tested in here? when is empty...
+        when(database.getAllInvoices()).thenReturn(invoices);
 
         //then
-        assertEquals(invoiceProvider.getListOf2Invoices(), book.getAllInvoices());
+        assertEquals(invoiceProvider.getListOf2Invoices(), invoiceBook.getAllInvoices());
     }
 
     @Test
     public void shouldUpdateInvoiceWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
-        InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
-        book.addNewInvoice(invoiceProvider.invoice);
-        book.addNewInvoice(invoiceProvider.invoice1);
+        InvoiceBook invoiceBook = new InvoiceBook(database);
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice1);
+        invoices.add(invoiceProvider.invoice2);
 
         //when
+        Mockito.doNothing().when(database).updateInvoice(invoiceProvider.invoice3);
         invoiceProvider.invoice3.setId(1);
-        book.updateInvoice(invoiceProvider.invoice3);
+        invoiceBook.updateInvoice(invoiceProvider.invoice3);
+        invoices.remove(invoiceProvider.invoice1);
+        invoices.add(1, invoiceProvider.invoice3);
 
         //then
-        assertEquals(invoiceProvider.invoice3, book.getInvoiceById(1));
+        assertEquals(invoiceProvider.invoice3, invoices.get(1));
     }
 
     @Test
     public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        //FIXME: This is unit test! there should not be  ``new InMemoryDatabase` in here - all the tests should use mocks! (you test InvoiceBook in separation from dependency classes!)
-        InvoiceBook book = new InvoiceBook(new InMemoryDatabase());
-        book.addNewInvoice(invoiceProvider.invoice);
-        book.addNewInvoice(invoiceProvider.invoice1);
-        book.addNewInvoice(invoiceProvider.invoice2);
-        book.addNewInvoice(invoiceProvider.invoice3);
-        book.addNewInvoice(invoiceProvider.invoice4);
-
-        List<Invoice> expected = new ArrayList<>();
-        expected.add(invoiceProvider.invoice2);
-        expected.add(invoiceProvider.invoice3);
-        expected.add(invoiceProvider.invoice4);
+        InvoiceBook invoiceBook = new InvoiceBook(database);
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice1);
+        invoices.add(invoiceProvider.invoice2);
 
         //when
-//FIXME: what is tested in here? when is empty...
+        when(database.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 31), LocalDate.of(2018, 2, 3)))
+                .thenReturn(invoices);
 
         //then
-        assertEquals(expected, book.getAllInvoicesInDateRange(LocalDate.of(2018, 2, 3),
-                LocalDate.of(2018, 2 ,9)));
+        assertEquals(invoiceProvider.getListOf3Invoices(), invoiceBook.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 31),
+                LocalDate.of(2018, 2, 3)));
     }
 }
