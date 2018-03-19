@@ -1,31 +1,33 @@
 package persistence;
 
-import config.ObjectMapperProvider;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Invoice;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class InFileDatabase implements Database {
+    
+    private FileHelper fileHelper;
+    private ObjectMapper mapper;
 
-    //FIXME: this should be injected in constructor - not initialized in place. Please also rename to proper camel case: `fileHelper`
-    private FileHelper filehelper = new FileHelper();
-    /** FIXME: this is wrong: you should have here ObjectMapper, not ObjectMapperProvider
-     * - Spring will deal with it correctly itself if only you inject it in constructor, not initialize in place.
-     */
-    private ObjectMapperProvider mapper = new ObjectMapperProvider();
+    @Autowired
+    public InFileDatabase (ObjectMapper mapper, FileHelper fileHelper){
+        this.fileHelper = fileHelper;
+        this.mapper = mapper;
+    }
 
     @Override
     public void saveInvoice(Invoice invoice) {
         if (invoice != null) {
             try {
-                /** FIXME: as written above: you should already have ObjectMapper in here
-                 * - the `objectMapper()` method from the ObjectMapperProvider is never to be called explicitelly by you in the code
-                 * - it is only for Spring usage (it will call it in the background) **/
-                String jsonInString = mapper.objectMapper().writeValueAsString(invoice);
-                filehelper.writeValueAsStringInFile(jsonInString);
+                String jsonInString = mapper.writeValueAsString(invoice);
+                fileHelper.writeStringInFile(jsonInString);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -36,10 +38,9 @@ public class InFileDatabase implements Database {
     public List<Invoice> getAllInvoices() {
         List<Invoice> invoices = new ArrayList<>();
         try {
-            List<String> stringInvoices = filehelper.readValueFromJsonString();
+            List<String> stringInvoices = fileHelper.readInvoicesStringsFromFile();
             for (String item : stringInvoices) {
-                //FIXME: as above - do not call objectMapper() method on your own
-                invoices.add(mapper.objectMapper().readValue(item, Invoice.class));
+                invoices.add(mapper.readValue(item, Invoice.class));
             }
 
         } catch (IOException e) {
@@ -62,27 +63,25 @@ public class InFileDatabase implements Database {
     @Override
     public void updateInvoice(Invoice invoice) {
         List<Invoice> invoices = getAllInvoices();
-        filehelper.deleteFile();
-        //TODO: this is ok, but may be clearer by using different variable names. I suggest: `existingInvoice` instead of `invoiceById` and `updatedInvoice` instead of `invoice`
-        for (Invoice invoiceById : invoices) {
-            if (invoiceById.getId() == invoice.getId()) {
+        fileHelper.deleteFile();
+        for (Invoice existingInvoice : invoices) {
+            if (existingInvoice.getId() == invoice.getId()) {
                 saveInvoice(invoice);
                 continue;
             }
-            saveInvoice(invoiceById);
+            saveInvoice(existingInvoice);
         }
     }
 
     @Override
     public void removeInvoice(int id) {
         List<Invoice> invoices = getAllInvoices();
-        filehelper.deleteFile();
-        //TODO: same here - name `invoiceById` is somehow confusing - I would suggest `existingInvoice` or just `invoice`
-        for (Invoice invoiceById : invoices) {
-            if (invoiceById.getId() == id) {
+        fileHelper.deleteFile();
+        for (Invoice existingInvoice : invoices) {
+            if (existingInvoice.getId() == id) {
                 continue;
             }
-            saveInvoice(invoiceById);
+            saveInvoice(existingInvoice);
         }
     }
 
@@ -90,14 +89,8 @@ public class InFileDatabase implements Database {
     public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
         List<Invoice> invoicesInDateRange = new ArrayList<>();
         for (Invoice invoice : getAllInvoices()) {
-            //TODO: this is unreadable - you can change this two `ifs` to just one:
-            /**
-             * if(!invoice.getDate.isBefore(fromDate) && !invoice.getDate.isAfter(toDate)){
-             */
-            if (invoice.getDate().isAfter(fromDate) || invoice.getDate().isEqual(fromDate)) {
-                if (invoice.getDate().isBefore(toDate) || invoice.getDate().isEqual(toDate)) {
-                    invoicesInDateRange.add(invoice);
-                }
+            if(!invoice.getDate().isBefore(fromDate) && !invoice.getDate().isAfter(toDate)){
+                invoicesInDateRange.add(invoice);
             }
         }
         return invoicesInDateRange;

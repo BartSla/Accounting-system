@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class InFileDatabaseTest {
 
     private InvoiceProvider invoiceProvider = new InvoiceProvider();
-    private InFileDatabase inFileDatabase = new InFileDatabase();
+    private InFileDatabase inFileDatabase;
 
     @Before
     public void beforeTest() {
@@ -19,13 +19,13 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldSaveAndGetInvoiceWorks() throws Exception {
+    public void shouldSaveAndGetInvoice() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         assertEquals(invoiceProvider.getListOf1Invoices(), inFileDatabase.getAllInvoices());
     }
 
     @Test
-    public void shouldGetInvoiceByIdWorks() throws Exception {
+    public void shouldGetInvoiceById() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -33,7 +33,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldUpdateInvoiceWorks() throws Exception {
+    public void shouldUpdateInvoice() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -42,7 +42,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
+    public void shouldGetAllInvoicesInDateRange() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -53,7 +53,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldRemoveInvoiceWorks() throws Exception {
+    public void shouldRemoveInvoice() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);

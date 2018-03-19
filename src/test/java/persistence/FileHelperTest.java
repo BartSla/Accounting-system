@@ -19,22 +19,22 @@ public class FileHelperTest {
     }
 
     @Test
-    public void writeValueAsStringInFile() throws Exception {
-        fileHelper.writeValueAsStringInFile("test");
-        fileHelper.writeValueAsStringInFile("test");
-        assertEquals(Arrays.asList("test", "test"), fileHelper.readValueFromJsonString());
+    public void shouldWriteStringInFile() throws Exception {
+        fileHelper.writeStringInFile("test");
+        fileHelper.writeStringInFile("test");
+        assertEquals(Arrays.asList("test", "test"), fileHelper.readInvoicesStringsFromFile());
     }
 
     @Test
-    public void readValueFromJsonString() throws Exception {
-        fileHelper.writeValueAsStringInFile("test");
-        fileHelper.writeValueAsStringInFile("test");
-        assertEquals(Arrays.asList("test", "test"), fileHelper.readValueFromJsonString());
+    public void shouldReadInvoicesStringsFromFile() throws Exception {
+        fileHelper.writeStringInFile("test");
+        fileHelper.writeStringInFile("test");
+        assertEquals(Arrays.asList("test", "test"), fileHelper.readInvoicesStringsFromFile());
     }
 
     @Test
     public void deleteFile() throws Exception {
-        fileHelper.writeValueAsStringInFile("test");
+        fileHelper.writeStringInFile("test");
         fileHelper.deleteFile();
         assertFalse(new File("src/test/resources/database.json").exists());
     }
