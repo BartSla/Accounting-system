@@ -96,15 +96,16 @@ public class InvoiceBookTest {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceBook invoiceBook = new InvoiceBook(database);
+        LocalDate from = LocalDate.of(2018, 1, 31);
+        LocalDate to = LocalDate.of(2018, 2, 3);
         List<Invoice> invoices = new ArrayList<>();
         invoices.add(invoiceProvider.invoice);
         invoices.add(invoiceProvider.invoice1);
         invoices.add(invoiceProvider.invoice2);
-        when(database.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 31), LocalDate.of(2018, 2, 3)))
-                .thenReturn(invoices);
+        when(database.getAllInvoicesInDateRange(from, to)).thenReturn(invoices);
 
         //when
-        List<Invoice> result = invoiceBook.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 31), LocalDate.of(2018, 2, 3));
+        List<Invoice> result = invoiceBook.getAllInvoicesInDateRange(from, to);
 
         //then
         assertEquals(invoiceProvider.getListOf3Invoices(), result);
