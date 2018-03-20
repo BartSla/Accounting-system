@@ -30,7 +30,7 @@ public class ApplicationIntegrationTest {
     private ObjectMapperProvider objectMapper;
 
     @Test
-    public void shouldIntegrationAddAndGetByIdTestWorks() throws Exception {
+    public void shouldAddInvoiceAndGetById() throws Exception {
 
         //post new invoice
         this.mockMvc
@@ -50,8 +50,8 @@ public class ApplicationIntegrationTest {
         assertEquals(asJsonString(new InvoiceProvider().invoice), obj);
     }
 
-        @Test
-    public void shouldIntegrationUpdateTestWorks() throws Exception {
+    @Test
+    public void shouldUpdateInvoice() throws Exception {
 
         //post new invoice
         this.mockMvc
@@ -80,7 +80,7 @@ public class ApplicationIntegrationTest {
     }
 
     @Test
-    public void shouldIntegrationRemoveAndGetAllTestWorks() throws Exception {
+    public void shouldRemoveAndGetAllInvoices() throws Exception {
 
         //post new invoice
         this.mockMvc
@@ -109,7 +109,7 @@ public class ApplicationIntegrationTest {
     }
 
     @Test
-    public void shouldIntegrationDateRangeTestWorks() throws Exception {
+    public void shouldGetInvoicesFromDateRange() throws Exception {
 
         //post a few new invoice
         this.mockMvc
