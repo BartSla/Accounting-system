@@ -23,7 +23,7 @@ public class InvoiceControllerTest {
     private InvoiceBook invoiceBook;
 
     @Test
-    public void shouldGetAllInvoicesWorks() throws Exception {
+    public void shouldGetAllInvoices() throws Exception {
         InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
         List<Invoice> invoices = new ArrayList<>();
@@ -39,7 +39,7 @@ public class InvoiceControllerTest {
     }
 
     @Test
-    public void shouldGetInvoiceWorks() throws Exception {
+    public void shouldGetInvoiceById() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
@@ -53,7 +53,7 @@ public class InvoiceControllerTest {
     }
 
     @Test
-    public void updateInvoice() throws Exception {
+    public void shouldUpdateInvoice() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
@@ -66,7 +66,7 @@ public class InvoiceControllerTest {
     }
 
     @Test
-    public void shouldDeleteInvoiceWorks() throws Exception {
+    public void shouldDeleteInvoice() throws Exception {
         //given
         InvoiceController controller = new InvoiceController(invoiceBook);
 
@@ -78,7 +78,7 @@ public class InvoiceControllerTest {
     }
 
     @Test
-    public void shouldAddInvoiceWorks() throws Exception {
+    public void shouldAddInvoice() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
@@ -91,7 +91,7 @@ public class InvoiceControllerTest {
     }
 
     @Test
-    public void shouldGetInvoicesInDataRangeWorks() throws Exception {
+    public void shouldGetInvoicesInDataRange() throws Exception {
         //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
