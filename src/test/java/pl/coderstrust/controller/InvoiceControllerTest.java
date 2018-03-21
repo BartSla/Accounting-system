@@ -4,12 +4,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import pl.coderstrust.domain.Invoice;
 import pl.coderstrust.persistence.InvoiceProvider;
 import pl.coderstrust.processing.InvoiceBook;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class InvoiceControllerTest {
@@ -19,26 +24,32 @@ public class InvoiceControllerTest {
 
     @Test
     public void shouldGetAllInvoicesWorks() throws Exception {
-        //given
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice1);
+        when(invoiceBook.getAllInvoices()).thenReturn(invoices);
 
         //when
-        controller.getAllInvoices();
+        List<Invoice> result = controller.getAllInvoices();
 
         //then
-        verify(invoiceBook).getAllInvoices();
+        assertEquals(invoiceProvider.getListOf2Invoices(), result);
     }
 
     @Test
     public void shouldGetInvoiceWorks() throws Exception {
         //given
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
+        when(invoiceBook.getInvoiceById(0)).thenReturn(invoiceProvider.invoice);
 
         //when
-        controller.getInvoice(0);
+        Invoice invoice = controller.getInvoice(0);
 
         //then
-        verify(invoiceBook).getInvoiceById(0);
+        assertEquals(invoiceProvider.invoice, invoice);
     }
 
     @Test
@@ -82,14 +93,20 @@ public class InvoiceControllerTest {
     @Test
     public void shouldGetInvoicesInDataRangeWorks() throws Exception {
         //given
+        InvoiceProvider invoiceProvider = new InvoiceProvider();
         InvoiceController controller = new InvoiceController(invoiceBook);
-        LocalDate from = LocalDate.of(2018, 2, 3);
-        LocalDate to = LocalDate.of(2018, 2 ,9);
+        LocalDate from = LocalDate.of(2018, 1, 31);
+        LocalDate to = LocalDate.of(2018, 2, 3);
+        List<Invoice> invoices = new ArrayList<>();
+        invoices.add(invoiceProvider.invoice);
+        invoices.add(invoiceProvider.invoice1);
+        invoices.add(invoiceProvider.invoice2);
+        when(invoiceBook.getAllInvoicesInDateRange(from, to)).thenReturn(invoices);
 
         //when
-        controller.getInvoicesInDateRange(from,to);
+        List<Invoice> result = controller.getInvoicesInDateRange(from,to);
 
         //then
-        verify(invoiceBook).getAllInvoicesInDateRange(from, to);
+        assertEquals(invoiceProvider.getListOf3Invoices(), result);
     }
 }
