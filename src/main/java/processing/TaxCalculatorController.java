@@ -1,6 +1,7 @@
-/*
 package processing;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import persistence.FileHelper;
 import persistence.InFileDatabase;
 
 import java.math.BigDecimal;
@@ -17,7 +18,7 @@ public class TaxCalculatorController {
 
     //FIXME: this is wrong: you should not have here any knowledge about Database! If you need invoices, you should ues InvoiceBook to get them.
     //And it should be injected in constructor
-    private InFileDatabase inFileDatabase = new InFileDatabase();
+    private InFileDatabase inFileDatabase = new InFileDatabase(new ObjectMapper(), new FileHelper());
     //FIXME: inject in constructor, not initialize in place
     private TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
 
@@ -45,4 +46,3 @@ public class TaxCalculatorController {
         return temp2;
     }
 }
-*/
