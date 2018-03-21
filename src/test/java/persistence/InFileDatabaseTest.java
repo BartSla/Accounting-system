@@ -1,5 +1,7 @@
 package persistence;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import config.ObjectMapperProvider;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +13,11 @@ import static org.junit.Assert.assertEquals;
 public class InFileDatabaseTest {
 
     private InvoiceProvider invoiceProvider = new InvoiceProvider();
-    private InFileDatabase inFileDatabase;
+
+    private ObjectMapper mapper= new ObjectMapperProvider().objectMapper();
+    private FileHelper fileHelper= new FileHelper();
+
+    InFileDatabase inFileDatabase = new InFileDatabase(mapper, fileHelper);
 
     @Before
     public void beforeTest() {
