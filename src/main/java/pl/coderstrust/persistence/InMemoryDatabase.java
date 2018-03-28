@@ -1,5 +1,6 @@
 package pl.coderstrust.persistence;
 
+import org.springframework.context.annotation.Primary;
 import pl.coderstrust.domain.Invoice;
 import org.springframework.stereotype.Repository;
 
@@ -7,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Primary
 @Repository
 public class InMemoryDatabase implements Database {
 

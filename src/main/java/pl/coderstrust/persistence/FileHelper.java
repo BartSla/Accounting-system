@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FileHelper {
 
-    private File file = new File("src/test/resources/database.json");
+    private File file = new File("src/resources/database.json");
 
     public void writeStringInFile(String invoice) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
