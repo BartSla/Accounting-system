@@ -14,6 +14,17 @@ public class Invoice implements Visitable {
     private LocalDate date;
     private List<InvoiceEntry> entryList;
 
+    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+        this.buyer = buyer;
+        this.seller = seller;
+        this.id = id;
+        this.date = date;
+        this.entryList = entryList;
+    }
+
+    public Invoice() {
+    }
+
     public List<InvoiceEntry> getEntryList() {
         return entryList;
     }
@@ -52,29 +63,6 @@ public class Invoice implements Visitable {
 
     public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public Invoice() {
-    }
-
-    public Invoice(LocalDate date) {
-        this.date = date;
-    }
-
-    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date) {
-        this.buyer = buyer;
-        this.seller = seller;
-        this.id = id;
-        this.date = date;
-
-    }
-
-    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
-        this.buyer = buyer;
-        this.seller = seller;
-        this.id = id;
-        this.date = date;
-        this.entryList = entryList;
     }
 
     //FIXME: it should return double (or BigDecimal)
