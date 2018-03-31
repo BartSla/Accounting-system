@@ -1,5 +1,7 @@
 package pl.coderstrust.persistence;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +12,13 @@ import java.util.Scanner;
 
 //TODO: The class is not used - if not needed, please remove. If needed, please rename to proper camel case: `IdGenerator`
 public class Idgenerator {
+
+    @Value("${invNumberPath}")
+    String invNumberPath;
+
+    @Value("${idFilePath}")
+    String idFilePath;
+
     public String invoiceNumber() {
         int lastId, lastYear, year;
         boolean saveNewYear;
@@ -19,7 +28,7 @@ public class Idgenerator {
         year = cal.get(Calendar.YEAR);
 
         List<String> result = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File("src//main//invNumber.txt"))) {
+        try (Scanner scanner = new Scanner(new File(invNumberPath))) {
             while (scanner.hasNextLine()) result.add(scanner.nextLine());
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,8 +40,8 @@ public class Idgenerator {
         newId = lastId + 1 + "/" + year;
 
         try {
-            new File("src//main//invNumber.txt");
-            PrintWriter save = new PrintWriter("src//main//invNumber.txt");
+            new File(invNumberPath);
+            PrintWriter save = new PrintWriter(invNumberPath);
             if (saveNewYear) {
                 save.println(0);
                 save.print(year);
@@ -50,15 +59,15 @@ public class Idgenerator {
     public int id() {
         int newID;
         List<String> result = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File("src//main//id.txt"))) {
+        try (Scanner scanner = new Scanner(new File(idFilePath))) {
             while (scanner.hasNextLine()) result.add(scanner.nextLine());
         } catch (IOException e) {
             e.printStackTrace();
         }
         newID = Integer.parseInt(result.get(0)) + 1;
         try {
-            new File("src//main//id.txt");
-            PrintWriter save = new PrintWriter("src//main//id.txt");
+            new File(idFilePath);
+            PrintWriter save = new PrintWriter(idFilePath);
             save.print(newID);
             save.close();
         } catch (IOException e) {

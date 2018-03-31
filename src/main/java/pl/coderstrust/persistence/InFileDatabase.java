@@ -1,23 +1,26 @@
 package pl.coderstrust.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import pl.coderstrust.domain.Invoice;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@ConditionalOnProperty(name = "pl.coderstrust.database", value = "inFile")
 public class InFileDatabase implements Database {
-    
+
     private FileHelper fileHelper;
     private ObjectMapper mapper;
 
     @Autowired
-    public InFileDatabase (ObjectMapper mapper, FileHelper fileHelper){
+    public InFileDatabase(ObjectMapper mapper, FileHelper fileHelper) {
         this.fileHelper = fileHelper;
         this.mapper = mapper;
     }
@@ -89,7 +92,7 @@ public class InFileDatabase implements Database {
     public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
         List<Invoice> invoicesInDateRange = new ArrayList<>();
         for (Invoice invoice : getAllInvoices()) {
-            if(!invoice.getDate().isBefore(fromDate) && !invoice.getDate().isAfter(toDate)){
+            if (!invoice.getDate().isBefore(fromDate) && !invoice.getDate().isAfter(toDate)) {
                 invoicesInDateRange.add(invoice);
             }
         }

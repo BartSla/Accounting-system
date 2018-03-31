@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TaxCalculatorController {
 
-    @Value("${pathName}")
+    @Value("${pl.coderstrust.databasePathName}")
     String pathName;
 
     private BigDecimal incomeVat = new BigDecimal(0);

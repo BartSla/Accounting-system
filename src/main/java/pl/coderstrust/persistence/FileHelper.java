@@ -21,7 +21,7 @@ public class FileHelper {
     File file;
 
     @Autowired
-    public FileHelper(@Value("${pl.coderstrust.pathName}") String pathName) {
+    public FileHelper(@Value("${pl.coderstrust.databasePathName}") String pathName) {
         this.pathName = pathName;
         file = new File(pathName);
     }
