@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@ConditionalOnProperty(name = "pl.coderstrust.database", value = "inFile")
+@ConditionalOnProperty(name = "pl.coderstrust.database", havingValue = "inFile")
 public class InFileDatabase implements Database {
 
     private FileHelper fileHelper;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@ConditionalOnProperty(name = "pl.coderstrust.database", value = "inMemory")
+@ConditionalOnProperty(name = "pl.coderstrust.database", havingValue = "inMemory")
 public class InMemoryDatabase implements Database {
 
     private List<Invoice> invoices;
