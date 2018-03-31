@@ -22,6 +22,13 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
+    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date) {
+        this.buyer = buyer;
+        this.seller = seller;
+        this.id = id;
+        this.date = date;
+    }
+
     public Invoice() {
     }
 

@@ -2,6 +2,8 @@ package pl.coderstrust.persistence;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.TestPropertySource;
 
 import java.io.File;
 import java.util.Arrays;
@@ -9,13 +11,16 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+
 public class FileHelperTest {
 
-    private FileHelper fileHelper = new FileHelper();
+    String pathNameForDatabase = "src/test/resources/database.json";
+
+    private FileHelper fileHelper = new FileHelper(pathNameForDatabase);
 
     @Before
     public void beforeTest() {
-        new File("src/test/resources/database.json").delete();
+        new File(pathNameForDatabase).delete();
     }
 
     @Test
@@ -36,6 +41,6 @@ public class FileHelperTest {
     public void deleteFile() throws Exception {
         fileHelper.writeStringInFile("test");
         fileHelper.deleteFile();
-        assertFalse(new File("src/test/resources/database.json").exists());
+        assertFalse(new File(pathNameForDatabase).exists());
     }
 }

@@ -9,12 +9,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FileHelper {
 
-    private File file = new File("src/resources/database.json");
+    String pathName;
+    File file;
+
+    @Autowired
+    public FileHelper(@Value("${pl.coderstrust.pathName}") String pathName) {
+        this.pathName = pathName;
+        file = new File(pathName);
+    }
 
     public void writeStringInFile(String invoice) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {

@@ -1,5 +1,6 @@
 package pl.coderstrust.processing;
 
+import org.springframework.beans.factory.annotation.Value;
 import pl.coderstrust.config.ObjectMapperProvider;
 import pl.coderstrust.persistence.FileHelper;
 import pl.coderstrust.persistence.InFileDatabase;
@@ -10,6 +11,9 @@ import java.util.List;
 
 public class TaxCalculatorController {
 
+    @Value("${pathName}")
+    String pathName;
+
     private BigDecimal incomeVat = new BigDecimal(0);
     private BigDecimal outcomeVat = new BigDecimal(0);
     private BigDecimal income = new BigDecimal(0);
@@ -18,7 +22,7 @@ public class TaxCalculatorController {
 
     //FIXME: this is wrong: you should not have here any knowledge about Database! If you need invoices, you should ues InvoiceBook to get them.
     //And it should be injected in constructor
-    private InFileDatabase inFileDatabase = new InFileDatabase(new ObjectMapperProvider().objectMapper(), new FileHelper());
+    private InFileDatabase inFileDatabase = new InFileDatabase(new ObjectMapperProvider().objectMapper(), new FileHelper(pathName));
     //FIXME: inject in constructor, not initialize in place
     private TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
 

@@ -1,6 +1,7 @@
 package pl.coderstrust.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import pl.coderstrust.config.ObjectMapperProvider;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,16 +13,18 @@ import static org.junit.Assert.assertEquals;
 
 public class InFileDatabaseTest {
 
+    String pathName = "src/test/resources/database.json";
+
     private InvoiceProvider invoiceProvider = new InvoiceProvider();
 
     private ObjectMapper mapper= new ObjectMapperProvider().objectMapper();
-    private FileHelper fileHelper= new FileHelper();
+    private FileHelper fileHelper= new FileHelper(pathName);
 
     InFileDatabase inFileDatabase = new InFileDatabase(mapper, fileHelper);
 
     @Before
     public void beforeTest() {
-        new File("src/test/resources/database.json").delete();
+        new File(pathName).delete();
     }
 
     @Test
