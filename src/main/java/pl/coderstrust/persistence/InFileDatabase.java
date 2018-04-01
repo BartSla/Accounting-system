@@ -1,6 +1,8 @@
 package pl.coderstrust.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import pl.coderstrust.domain.Invoice;
 
@@ -15,6 +17,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 @ConditionalOnProperty(name = "pl.coderstrust.database", havingValue = "inFile")
 public class InFileDatabase implements Database {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(InFileDatabase.class);
 
     private FileHelper fileHelper;
     private ObjectMapper mapper;
@@ -32,7 +37,7 @@ public class InFileDatabase implements Database {
                 String jsonInString = mapper.writeValueAsString(invoice);
                 fileHelper.writeStringInFile(jsonInString);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("Couldn't save invoice in file", e);
             }
         }
     }
@@ -47,7 +52,7 @@ public class InFileDatabase implements Database {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Couldn't read all invoices from file", e);
         }
         return invoices;
     }

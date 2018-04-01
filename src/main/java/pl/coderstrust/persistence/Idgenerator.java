@@ -1,5 +1,7 @@
 package pl.coderstrust.persistence;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
@@ -19,6 +21,8 @@ public class Idgenerator {
     @Value("${idFilePath}")
     String idFilePath;
 
+    private static final Logger logger = LoggerFactory.getLogger(Idgenerator.class);
+
     public String invoiceNumber() {
         int lastId, lastYear, year;
         boolean saveNewYear;
@@ -31,7 +35,7 @@ public class Idgenerator {
         try (Scanner scanner = new Scanner(new File(invNumberPath))) {
             while (scanner.hasNextLine()) result.add(scanner.nextLine());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Couldn't read file InvNumber.txt", e);
         }
         lastId = Integer.parseInt(result.get(0));
         lastYear = Integer.parseInt(result.get(1));
@@ -51,7 +55,7 @@ public class Idgenerator {
             }
             save.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Couldn't save invoice number", e);
         }
         return newId;
     }
@@ -62,7 +66,7 @@ public class Idgenerator {
         try (Scanner scanner = new Scanner(new File(idFilePath))) {
             while (scanner.hasNextLine()) result.add(scanner.nextLine());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Couldn't read ID", e);
         }
         newID = Integer.parseInt(result.get(0)) + 1;
         try {
@@ -71,7 +75,7 @@ public class Idgenerator {
             save.print(newID);
             save.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Couldn't save ID", e);
         }
         return newID;
     }

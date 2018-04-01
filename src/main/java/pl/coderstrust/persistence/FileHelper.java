@@ -31,6 +31,7 @@ public class FileHelper {
             writer.write(invoice);
             writer.newLine();
         }
+
     }
 
     public List<String> readInvoicesStringsFromFile() throws IOException {

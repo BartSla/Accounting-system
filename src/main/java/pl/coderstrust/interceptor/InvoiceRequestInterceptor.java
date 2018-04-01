@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class InvoiceRequestInterceptor extends HandlerInterceptorAdapter {
 
-    private static final Logger logger = LoggerFactory
-            .getLogger(InvoiceRequestInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(InvoiceRequestInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
 
-        logger.info("[preHandle][" + request + "]" + "[" + request.getMethod()
-                + "]" + request.getRequestURI());
+        logger.error("Request: " + request + "] " + "[ Method: " + request.getMethod()
+                + "] " + request.getRequestURI().toString());
         return true;
     }
 
@@ -26,6 +25,6 @@ public class InvoiceRequestInterceptor extends HandlerInterceptorAdapter {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
                                 Object handler, Exception ex){
 
-        logger.debug("[afterCompletion][" + request + "][exception: " + ex + "]");
+        logger.error("Response status " + response.getStatus() + " to method: "+ request.getMethod() +  "][exception: " + ex + "]");
     }
 }
