@@ -1,12 +1,9 @@
 package pl.coderstrust.domain;
 
-import pl.coderstrust.processing.Visitable;
-import pl.coderstrust.processing.Visitor;
-
 import java.time.LocalDate;
 import java.util.List;
 
-public class Invoice implements Visitable {
+public class Invoice {
 
     private Buyer buyer;
     private Seller seller;
@@ -75,11 +72,6 @@ public class Invoice implements Visitable {
         this.id = id;
         this.date = date;
         this.entryList = entryList;
-    }
-
-    //FIXME: it should return double (or BigDecimal)
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
     }
 
     @Override
