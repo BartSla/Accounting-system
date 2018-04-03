@@ -12,7 +12,7 @@ import java.util.function.Function;
 @Service
 public class TaxCalculatorService {
 
-    private Company myCompanyS = new Company("ABC", "8909870908", "Nowa15", "Wroclaw", "54-317");
+    private Company myCompanyS = new Company("ABC1", "896", "New1", "Wroclaw", "55-120");
 
     private BigDecimal getGeneric(List<Invoice> invoices, Function<Invoice, Boolean> shouldFunction, Function<InvoiceEntry, BigDecimal> getValueFunction ) {
         BigDecimal sumOfVat = new BigDecimal(0);
