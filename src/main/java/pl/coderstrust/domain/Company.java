@@ -8,7 +8,10 @@ public class Company {
     private String city;
     private String postcode;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fb91407be67d0d5ad8e0a08d60c2aa5eec0e4580
     public Company(String name, String nip, String streetAndNumber, String city, String postcode) {
         this.name = name;
         this.nip = nip;
@@ -76,7 +79,11 @@ public class Company {
         return streetAndNumber;
     }
 
+<<<<<<< HEAD
     public void setStreetAndNumber(String streetAndNumber) {
+=======
+    public void getStreetAndNumber(String streetAndNumber) {
+>>>>>>> fb91407be67d0d5ad8e0a08d60c2aa5eec0e4580
         this.streetAndNumber = streetAndNumber;
     }
 

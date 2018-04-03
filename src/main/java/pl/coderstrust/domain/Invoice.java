@@ -1,15 +1,12 @@
 package pl.coderstrust.domain;
 
-import pl.coderstrust.processing.Visitable;
-import pl.coderstrust.processing.Visitor;
-
 import java.time.LocalDate;
 import java.util.List;
 
-public class Invoice implements Visitable {
+public class Invoice {
 
-    private Buyer buyer;
-    private Seller seller;
+    private Company buyer;
+    private Company seller;
     private int id;
     private LocalDate date;
     private List<InvoiceEntry> entryList;
@@ -40,19 +37,19 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
-    public Buyer getBuyer() {
+    public Company getBuyer() {
         return buyer;
     }
 
-    public void setBuyer(Buyer buyer) {
+    public void setBuyer(Company buyer) {
         this.buyer = buyer;
     }
 
-    public Seller getSeller() {
+    public Company getSeller() {
         return seller;
     }
 
-    public void setSeller(Seller seller) {
+    public void setSeller(Company seller) {
         this.seller = seller;
     }
 
@@ -72,9 +69,33 @@ public class Invoice implements Visitable {
         this.date = date;
     }
 
+<<<<<<< HEAD
     //FIXME: it should return double (or BigDecimal)
     public void accept(Visitor visitor) {
         visitor.visit(this);
+=======
+    public Invoice() {
+    }
+
+    public Invoice(LocalDate date) {
+        this.date = date;
+    }
+
+    public Invoice(Company buyer, Company seller, int id, LocalDate date) {
+        this.buyer = buyer;
+        this.seller = seller;
+        this.id = id;
+        this.date = date;
+
+    }
+
+    public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+        this.buyer = buyer;
+        this.seller = seller;
+        this.id = id;
+        this.date = date;
+        this.entryList = entryList;
+>>>>>>> fb91407be67d0d5ad8e0a08d60c2aa5eec0e4580
     }
 
     @Override

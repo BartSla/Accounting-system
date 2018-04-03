@@ -2,12 +2,14 @@ package pl.coderstrust.domain;
 
 import pl.coderstrust.processing.Vat;
 
+import java.math.BigDecimal;
+
 public class InvoiceEntry {
 
     private String name;
     private Vat vat;
-    private Double nettValue;
-    private Double grossValue;
+    private BigDecimal nettValue;
+    private BigDecimal grossValue;
 
     public String getName() {
         return name;
@@ -25,31 +27,29 @@ public class InvoiceEntry {
         this.vat = vat;
     }
 
-    public Double getNettValue() {
+    public BigDecimal getNettValue() {
         return nettValue;
     }
 
-    public void setNettValue(Double nettValue) {
+    public void setNettValue(BigDecimal nettValue) {
         this.nettValue = nettValue;
     }
 
-    public Double getGrossValue() {
+    public BigDecimal getGrossValue() {
         return grossValue;
     }
 
-    public void setGrossValue(Double grossValue) {
+    public void setGrossValue(BigDecimal grossValue) {
         this.grossValue = grossValue;
     }
 
-    //TODO: Is it used by anybody? If no, please remove it.
-    public InvoiceEntry(String name, Vat vat, Double nettValue, Double grossValue) {
+    public InvoiceEntry(String name, Vat vat, BigDecimal nettValue, BigDecimal grossValue) {
         this.name = name;
         this.vat = vat;
         this.nettValue = nettValue;
         this.grossValue = grossValue;
     }
 
-    //TODO: Is it used by anybody? If no, please remove it.
     public InvoiceEntry() {
     }
 }
