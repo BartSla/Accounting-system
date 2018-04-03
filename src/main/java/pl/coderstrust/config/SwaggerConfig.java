@@ -19,18 +19,18 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(getApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("pl.coderstrust"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo getApiInfo() {
-        Contact contact = new Contact("Invoice Simple", "http://github.com", "kursantjava68@gmail.com");
+        Contact contact = new Contact("Bartek, Filip, Grzegorz", "https://github.com/CodersTrustPL/project-4-bartek-filip-grzegorz", "kursantjava68@gmail.com");
         return new ApiInfoBuilder()
                 .title("Invoice Simple")
-                .description("Here is the best app for making an invoice, ")
+                .description("Here is the best app for making an invoice. ")
                 .version("1.0.0")
-                .license("Apache 2.0")
+                .license("Apache License 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
                 .contact(contact)
                 .build();
