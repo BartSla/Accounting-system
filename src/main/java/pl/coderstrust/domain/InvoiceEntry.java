@@ -1,7 +1,10 @@
 package pl.coderstrust.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import pl.coderstrust.processing.Vat;
 
+@ApiModel(value= "Items list", description="List of items")
 public class InvoiceEntry {
 
     private String name;
@@ -9,6 +12,7 @@ public class InvoiceEntry {
     private Double nettValue;
     private Double grossValue;
 
+    @ApiModelProperty(value = "Item name", required = true)
     public String getName() {
         return name;
     }
@@ -17,6 +21,7 @@ public class InvoiceEntry {
         this.name = name;
     }
 
+    @ApiModelProperty(value = "Vat value", required = true)
     public Vat getVat() {
         return vat;
     }
@@ -25,6 +30,7 @@ public class InvoiceEntry {
         this.vat = vat;
     }
 
+    @ApiModelProperty(value = "Nett value", required = true)
     public Double getNettValue() {
         return nettValue;
     }
@@ -33,6 +39,7 @@ public class InvoiceEntry {
         this.nettValue = nettValue;
     }
 
+    @ApiModelProperty(value = "Gross value", required = true)
     public Double getGrossValue() {
         return grossValue;
     }

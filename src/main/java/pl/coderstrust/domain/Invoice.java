@@ -1,11 +1,14 @@
 package pl.coderstrust.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import pl.coderstrust.processing.Visitable;
 import pl.coderstrust.processing.Visitor;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@ApiModel(value= "Invoice", description="Sample model of invoice")
 public class Invoice implements Visitable {
 
     private Buyer buyer;
@@ -40,6 +43,7 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
+    @ApiModelProperty(value = "Buyer", required = true)
     public Buyer getBuyer() {
         return buyer;
     }
@@ -48,6 +52,7 @@ public class Invoice implements Visitable {
         this.buyer = buyer;
     }
 
+    @ApiModelProperty(value = "Seller", required = true)
     public Seller getSeller() {
         return seller;
     }
@@ -56,6 +61,7 @@ public class Invoice implements Visitable {
         this.seller = seller;
     }
 
+    @ApiModelProperty(value = "ID number")
     public int getId() {
         return id;
     }
@@ -64,6 +70,7 @@ public class Invoice implements Visitable {
         this.id = id;
     }
 
+    @ApiModelProperty(value = "Date", required = true)
     public LocalDate getDate() {
         return date;
     }

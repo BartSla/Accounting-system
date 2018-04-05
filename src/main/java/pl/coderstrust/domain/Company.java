@@ -1,5 +1,9 @@
 package pl.coderstrust.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value= "Company", description="Company data")
 public class Company {
 
     private String name;
@@ -56,6 +60,7 @@ public class Company {
                 '}';
     }
 
+    @ApiModelProperty(value = "Company name", dataType = "Stokrotka", required = true)
     public String getName() {
         return name;
     }
@@ -64,6 +69,7 @@ public class Company {
         this.name = name;
     }
 
+    @ApiModelProperty(value = "NIP", dataType = "Stokrotka", required = true)
     public String getNip() {
         return nip;
     }
@@ -72,6 +78,7 @@ public class Company {
         this.nip = nip;
     }
 
+    @ApiModelProperty(value = "Street and street number", required = true)
     public String getStreetAndNumber() {
         return streetAndNumber;
     }
@@ -80,6 +87,7 @@ public class Company {
         this.streetAndNumber = streetAndNumber;
     }
 
+    @ApiModelProperty(value = "City", required = true)
     public String getCity() {
         return city;
     }
@@ -88,6 +96,7 @@ public class Company {
         this.city = city;
     }
 
+    @ApiModelProperty(value = "Postcode", required = true)
     public String getPostcode() {
         return postcode;
     }

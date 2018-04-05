@@ -39,7 +39,8 @@ public class InvoiceController {
     return invoiceBook.getAllInvoices();
   }
 
-  @ApiOperation("Gets invoice with specific ID")
+  @ApiOperation(value ="Gets invoice with specific ID",
+      notes = "Return invoice with specific ID available in database")
   @ApiResponses(
       value = {@ApiResponse(code = 200, message = "Successful"),
           @ApiResponse(code = 401, message = "You are not authorised to get invoice with specific ID"),
