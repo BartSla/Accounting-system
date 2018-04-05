@@ -4,35 +4,35 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import pl.coderstrust.domain.Invoice;
 import pl.coderstrust.persistence.InvoiceProvider;
 import pl.coderstrust.processing.InvoiceBook;
 import pl.coderstrust.processing.TaxCalculatorService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TaxCalculatorControllerTest {
     @Mock
     private InvoiceBook invoiceBook;
+    @Mock
+    private  TaxCalculatorService taxCalculatorService;
 
     @Test
     public void shouldGetOutcomeVat() throws Exception {
+        //given
         InvoiceProvider invoiceProvider = new InvoiceProvider();
-        TaxCalculatorService taxCalculatorService = new TaxCalculatorService();
-        TaxCalculatorController taxCalculatorController = new TaxCalculatorController(taxCalculatorService, invoiceBook);
-        List<Invoice> testListOfInvoices = new ArrayList<>();
-        testListOfInvoices.add(invoiceProvider.invoice);
-        testListOfInvoices.add(invoiceProvider.invoice1);
         when(invoiceBook.getAllInvoices()).thenReturn(invoiceProvider.getListOf2Invoices());
-
-        assertEquals(taxCalculatorService.getOutcomeVat(testListOfInvoices),taxCalculatorController.getOutcomeVat());
-
-
+        TaxCalculatorController taxCalculatorController = new TaxCalculatorController(taxCalculatorService, invoiceBook);
+        
+        //when
+        BigDecimal result = taxCalculatorController.getOutcomeVat();
+        //then
+        assertEquals(new BigDecimal(92),result);
+        verify(taxCalculatorService).getOutcomeVat(invoiceProvider.getListOf2Invoices());
     }
 
     @Test
