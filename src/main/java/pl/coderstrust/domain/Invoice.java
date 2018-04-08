@@ -1,20 +1,17 @@
 package pl.coderstrust.domain;
 
-import pl.coderstrust.processing.Visitable;
-import pl.coderstrust.processing.Visitor;
-
 import java.time.LocalDate;
 import java.util.List;
 
-public class Invoice implements Visitable {
+public class Invoice {
 
-    private Buyer buyer;
-    private Seller seller;
+    private Company buyer;
+    private Company seller;
     private int id;
     private LocalDate date;
     private List<InvoiceEntry> entryList;
 
-    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+    public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
         this.buyer = buyer;
         this.seller = seller;
         this.id = id;
@@ -22,7 +19,7 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
-    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date) {
+    public Invoice(Company buyer, Company seller, int id, LocalDate date) {
         this.buyer = buyer;
         this.seller = seller;
         this.id = id;
@@ -40,19 +37,19 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
-    public Buyer getBuyer() {
+    public Company getBuyer() {
         return buyer;
     }
 
-    public void setBuyer(Buyer buyer) {
+    public void setBuyer(Company buyer) {
         this.buyer = buyer;
     }
 
-    public Seller getSeller() {
+    public Company getSeller() {
         return seller;
     }
 
-    public void setSeller(Seller seller) {
+    public void setSeller(Company seller) {
         this.seller = seller;
     }
 
@@ -72,10 +69,7 @@ public class Invoice implements Visitable {
         this.date = date;
     }
 
-    //FIXME: it should return double (or BigDecimal)
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
+
 
     @Override
     public boolean equals(Object o) {
