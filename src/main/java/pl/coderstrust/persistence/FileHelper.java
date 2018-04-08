@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FileHelper {
 
-    public String pathName;
+    private String pathName;
     private File file;
 
     @Autowired
