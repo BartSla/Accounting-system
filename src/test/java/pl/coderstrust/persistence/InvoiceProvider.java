@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InvoiceProvider {
-    private Vat vat= Vat.valueOf("twenty-three");
+    private Vat vat= Vat.TWENTY_THREE;
     private Company buyer = new Company("ABC1", "896", "New1", "Wroclaw", "55-120");
     private Company buyer1 = new Company("ABC2", "896", "New1", "Wroclaw", "55-120");
     private Company buyer2 = new Company("ABC3", "896", "New1", "Wroclaw", "55-120");
@@ -30,21 +30,25 @@ public class InvoiceProvider {
     public Invoice invoice4 = new Invoice(buyer4, seller4, 4, LocalDate.of(2018, 2, 9));
     public Invoice invoiceToUpdate = new Invoice(buyer1, seller1, 0, LocalDate.of(2018, 2, 1));
 
-    private InvoiceEntry invoiceEntry = new InvoiceEntry("ołówek",vat, new BigDecimal(100), new BigDecimal(123));
-    private InvoiceEntry invoiceEntry1 = new InvoiceEntry("pióro",vat, new BigDecimal(200), new BigDecimal(246));
-    private InvoiceEntry invoiceEntry2 = new InvoiceEntry("flamaster",vat, new BigDecimal(50), new BigDecimal(61.50));
+
     public List<InvoiceEntry> getListOfOneInvoiceEntry(){
+        InvoiceEntry invoiceEntry = new InvoiceEntry("ołówek",vat, new BigDecimal(100), new BigDecimal(123));
         List<InvoiceEntry> invoiceEntries = new ArrayList<>();
         invoiceEntries.add(invoiceEntry);
         return  invoiceEntries;
     }
     public List<InvoiceEntry> getListOf2InvoiceEntry(){
+        InvoiceEntry invoiceEntry = new InvoiceEntry("ołówek",vat, new BigDecimal(100), new BigDecimal(123));
+        InvoiceEntry invoiceEntry1 = new InvoiceEntry("pióro",vat, new BigDecimal(200), new BigDecimal(246));
         List<InvoiceEntry> invoiceEntries = new ArrayList<>();
         invoiceEntries.add(invoiceEntry);
         invoiceEntries.add(invoiceEntry1);
         return  invoiceEntries;
     }
     public List<InvoiceEntry> getListOf3InvoiceEntry(){
+        InvoiceEntry invoiceEntry = new InvoiceEntry("ołówek",vat, new BigDecimal(100), new BigDecimal(123));
+        InvoiceEntry invoiceEntry1 = new InvoiceEntry("pióro",vat, new BigDecimal(200), new BigDecimal(246));
+        InvoiceEntry invoiceEntry2 = new InvoiceEntry("flamaster",vat, new BigDecimal(50), new BigDecimal(61.50));
         List<InvoiceEntry> invoiceEntries = new ArrayList<>();
         invoiceEntries.add(invoiceEntry);
         invoiceEntries.add(invoiceEntry1);

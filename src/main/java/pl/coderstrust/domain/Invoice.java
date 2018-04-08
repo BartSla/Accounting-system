@@ -11,7 +11,7 @@ public class Invoice {
     private LocalDate date;
     private List<InvoiceEntry> entryList;
 
-    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+    public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
         this.buyer = buyer;
         this.seller = seller;
         this.id = id;
@@ -19,7 +19,7 @@ public class Invoice {
         this.entryList = entryList;
     }
 
-    public Invoice(Buyer buyer, Seller seller, int id, LocalDate date) {
+    public Invoice(Company buyer, Company seller, int id, LocalDate date) {
         this.buyer = buyer;
         this.seller = seller;
         this.id = id;
@@ -69,34 +69,7 @@ public class Invoice {
         this.date = date;
     }
 
-<<<<<<< HEAD
-    //FIXME: it should return double (or BigDecimal)
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-=======
-    public Invoice() {
-    }
 
-    public Invoice(LocalDate date) {
-        this.date = date;
-    }
-
-    public Invoice(Company buyer, Company seller, int id, LocalDate date) {
-        this.buyer = buyer;
-        this.seller = seller;
-        this.id = id;
-        this.date = date;
-
-    }
-
-    public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
-        this.buyer = buyer;
-        this.seller = seller;
-        this.id = id;
-        this.date = date;
-        this.entryList = entryList;
->>>>>>> fb91407be67d0d5ad8e0a08d60c2aa5eec0e4580
-    }
 
     @Override
     public boolean equals(Object o) {

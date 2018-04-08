@@ -28,11 +28,11 @@ public class TaxCalculatorService {
     }
 
     public BigDecimal getOutcomeVat(List<Invoice> invoices) {
-       return  getGeneric(invoices, invoice -> invoice.getBuyer().equals(myCompanyS), invoiceEntry -> invoiceEntry.getNettValue().multiply(new BigDecimal(invoiceEntry.getVat().getValue())));
+       return  getGeneric(invoices, invoice -> invoice.getBuyer().equals(myCompanyS), invoiceEntry -> invoiceEntry.getNettValue().multiply(new BigDecimal(invoiceEntry.getVat().getValue())).divide(BigDecimal.valueOf(100),2));
     }
 
     public BigDecimal getIncomeVat(List<Invoice> invoices) {
-        return  getGeneric(invoices, invoice -> invoice.getSeller().equals(myCompanyS), invoiceEntry -> invoiceEntry.getNettValue().multiply(new BigDecimal(invoiceEntry.getVat().getValue())));
+        return  getGeneric(invoices, invoice -> invoice.getSeller().equals(myCompanyS), invoiceEntry -> invoiceEntry.getNettValue().multiply(new BigDecimal(invoiceEntry.getVat().getValue())).divide(BigDecimal.valueOf(100),2));
     }
 
     public BigDecimal getIncome(List<Invoice> invoices) {
