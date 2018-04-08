@@ -1,7 +1,7 @@
 package pl.coderstrust.processing;
 
-import pl.coderstrust.domain.Invoice;
 import org.springframework.stereotype.Service;
+import pl.coderstrust.domain.Invoice;
 import pl.coderstrust.persistence.Database;
 
 import java.time.LocalDate;
