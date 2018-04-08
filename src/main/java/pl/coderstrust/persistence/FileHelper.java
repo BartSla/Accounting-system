@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class FileHelper {
 
-    String pathName;
-    File file;
+    private String pathName;
+    private File file;
 
     @Autowired
     public FileHelper(@Value("${pl.coderstrust.databasePathName}") String pathName) {
@@ -31,7 +31,6 @@ public class FileHelper {
             writer.write(invoice);
             writer.newLine();
         }
-
     }
 
     public List<String> readInvoicesStringsFromFile() throws IOException {
