@@ -1,5 +1,8 @@
 package pl.coderstrust.persistence;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
+import pl.coderstrust.config.ObjectMapperProvider;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,22 +13,28 @@ import static org.junit.Assert.assertEquals;
 
 public class InFileDatabaseTest {
 
+    String pathName = "src/test/resources/database.json";
+
     private InvoiceProvider invoiceProvider = new InvoiceProvider();
-    private InFileDatabase inFileDatabase = new InFileDatabase();
+
+    private ObjectMapper mapper= new ObjectMapperProvider().objectMapper();
+    private FileHelper fileHelper= new FileHelper(pathName);
+
+    InFileDatabase inFileDatabase = new InFileDatabase(mapper, fileHelper);
 
     @Before
     public void beforeTest() {
-        new File("src/test/resources/database.json").delete();
+        new File(pathName).delete();
     }
 
     @Test
-    public void shouldSaveAndGetInvoiceWorks() throws Exception {
+    public void shouldSaveAndGetInvoice() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         assertEquals(invoiceProvider.getListOf1Invoices(), inFileDatabase.getAllInvoices());
     }
 
     @Test
-    public void shouldGetInvoiceByIdWorks() throws Exception {
+    public void shouldGetInvoiceById() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -33,7 +42,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldUpdateInvoiceWorks() throws Exception {
+    public void shouldUpdateInvoice() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -42,7 +51,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldGetAllInvoicesInDateRangeWorks() throws Exception {
+    public void shouldGetAllInvoicesInDateRange() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
@@ -53,7 +62,7 @@ public class InFileDatabaseTest {
     }
 
     @Test
-    public void shouldRemoveInvoiceWorks() throws Exception {
+    public void shouldRemoveInvoice() throws Exception {
         inFileDatabase.saveInvoice(invoiceProvider.invoice);
         inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);

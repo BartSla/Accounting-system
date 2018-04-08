@@ -1,5 +1,7 @@
 package pl.coderstrust.persistence;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Primary;
 import pl.coderstrust.domain.Invoice;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@ConditionalOnProperty(name = "pl.coderstrust.database", havingValue = "inMemory")
 public class InMemoryDatabase implements Database {
 
     private List<Invoice> invoices;

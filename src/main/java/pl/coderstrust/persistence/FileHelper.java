@@ -10,20 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class FileHelper {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-    private File file = new File("src/test/resources/database.json");
+@Service
+public class FileHelper {
 
-    //TODO: Method name is confusing - I would rather suggest `writeInvoiceStringToFile` or just `writeStringToFile, as you already have it as String in here
-    public void writeValueAsStringInFile(String invoice) throws IOException {
+    String pathName;
+    File file;
+
+    @Autowired
+    public FileHelper(@Value("${pl.coderstrust.databasePathName}") String pathName) {
+        this.pathName = pathName;
+        file = new File(pathName);
+    }
+
+    public void writeStringInFile(String invoice) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.write(invoice);
             writer.newLine();
         }
+
     }
 
-    //TODO: It has nothing to do with JSON so again name is confusing. It should be rather: `readInvoicesStringsFromFile` or just `readLinesFromFile`
-    public List<String> readValueFromJsonString() throws IOException {
+    public List<String> readInvoicesStringsFromFile() throws IOException {
         List<String> readLines = new ArrayList<>();
         try (BufferedReader fileReader = new BufferedReader(new FileReader(file))) {
             String line;

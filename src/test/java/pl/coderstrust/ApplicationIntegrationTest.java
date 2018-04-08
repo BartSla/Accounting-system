@@ -103,7 +103,7 @@ public class ApplicationIntegrationTest {
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
 
-        Object expected = "[ ]";
+        Object expected = "[]";
 
         assertEquals(expected, obj);
     }

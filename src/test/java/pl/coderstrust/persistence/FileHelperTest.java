@@ -11,31 +11,33 @@ import static org.junit.Assert.assertFalse;
 
 public class FileHelperTest {
 
-    private FileHelper fileHelper = new FileHelper();
+    String pathNameForDatabase = "src/test/resources/database.json";
+
+    private FileHelper fileHelper = new FileHelper(pathNameForDatabase);
 
     @Before
     public void beforeTest() {
-        new File("src/test/resources/database.json").delete();
+        new File(pathNameForDatabase).delete();
     }
 
     @Test
-    public void writeValueAsStringInFile() throws Exception {
-        fileHelper.writeValueAsStringInFile("test");
-        fileHelper.writeValueAsStringInFile("test");
-        assertEquals(Arrays.asList("test", "test"), fileHelper.readValueFromJsonString());
+    public void shouldWriteStringInFile() throws Exception {
+        fileHelper.writeStringInFile("test");
+        fileHelper.writeStringInFile("test");
+        assertEquals(Arrays.asList("test", "test"), fileHelper.readInvoicesStringsFromFile());
     }
 
     @Test
-    public void readValueFromJsonString() throws Exception {
-        fileHelper.writeValueAsStringInFile("test");
-        fileHelper.writeValueAsStringInFile("test");
-        assertEquals(Arrays.asList("test", "test"), fileHelper.readValueFromJsonString());
+    public void shouldReadInvoicesStringsFromFile() throws Exception {
+        fileHelper.writeStringInFile("test");
+        fileHelper.writeStringInFile("test");
+        assertEquals(Arrays.asList("test", "test"), fileHelper.readInvoicesStringsFromFile());
     }
 
     @Test
     public void deleteFile() throws Exception {
-        fileHelper.writeValueAsStringInFile("test");
+        fileHelper.writeStringInFile("test");
         fileHelper.deleteFile();
-        assertFalse(new File("src/test/resources/database.json").exists());
+        assertFalse(new File(pathNameForDatabase).exists());
     }
 }

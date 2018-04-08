@@ -1,5 +1,9 @@
 package pl.coderstrust.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value= "Company", description="Company data")
 public class Company {
 
     private String name;
@@ -8,8 +12,13 @@ public class Company {
     private String city;
     private String postcode;
 
-    //FIXME: you do not assign values in this constructor, so it is not working at all. Please fix it.
+
     public Company(String name, String nip, String streetAndNumber, String city, String postcode) {
+        this.name = name;
+        this.nip = nip;
+        this.streetAndNumber = streetAndNumber;
+        this.city = city;
+        this.postcode = postcode;
     }
 
     public Company() {
@@ -51,6 +60,7 @@ public class Company {
                 '}';
     }
 
+    @ApiModelProperty(value = "Company name", required = true)
     public String getName() {
         return name;
     }
@@ -59,6 +69,7 @@ public class Company {
         this.name = name;
     }
 
+    @ApiModelProperty(value = "NIP", required = true, example = "6521585544")
     public String getNip() {
         return nip;
     }
@@ -67,16 +78,16 @@ public class Company {
         this.nip = nip;
     }
 
-    //FIXME: rename the method to be a proper getter
-    public String streetAndNumber() {
+    @ApiModelProperty(value = "Street and street number", required = true, example = "Nowa 7")
+    public String getStreetAndNumber() {
         return streetAndNumber;
     }
 
-    //FIXME: rename the method to be a proper setter
-    public void streetAndNumber(String streetAndNumber) {
+    public void setStreetAndNumber(String streetAndNumber) {
         this.streetAndNumber = streetAndNumber;
     }
 
+    @ApiModelProperty(value = "City", required = true, example = "Katowice")
     public String getCity() {
         return city;
     }
@@ -85,6 +96,7 @@ public class Company {
         this.city = city;
     }
 
+    @ApiModelProperty(value = "Postcode", required = true, example = "40-100")
     public String getPostcode() {
         return postcode;
     }
@@ -92,4 +104,6 @@ public class Company {
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
+
+
 }
