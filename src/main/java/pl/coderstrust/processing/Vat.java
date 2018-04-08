@@ -7,7 +7,6 @@ public enum Vat {
   ZERO(0);
 
 
-  //FIXME: I do not get it - what is this value field?
   private final int value;
 
   Vat(int value) {
