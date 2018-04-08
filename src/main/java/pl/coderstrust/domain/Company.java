@@ -76,7 +76,7 @@ public class Company {
         return streetAndNumber;
     }
 
-    public void getStreetAndNumber(String streetAndNumber) {
+    public void setStreetAndNumber(String streetAndNumber) {
         this.streetAndNumber = streetAndNumber;
     }
 
