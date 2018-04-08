@@ -43,7 +43,7 @@ public class Invoice implements Visitable {
         this.entryList = entryList;
     }
 
-    @ApiModelProperty(value = "Buyer", required = true)
+    @ApiModelProperty(value = "Buyer", required = true, example = "Samsung")
     public Buyer getBuyer() {
         return buyer;
     }
@@ -52,7 +52,7 @@ public class Invoice implements Visitable {
         this.buyer = buyer;
     }
 
-    @ApiModelProperty(value = "Seller", required = true)
+    @ApiModelProperty(value = "Seller", required = true, example = "Apple")
     public Seller getSeller() {
         return seller;
     }
@@ -61,7 +61,7 @@ public class Invoice implements Visitable {
         this.seller = seller;
     }
 
-    @ApiModelProperty(value = "ID number")
+    @ApiModelProperty(value = "ID number", example = "111")
     public int getId() {
         return id;
     }
@@ -70,7 +70,7 @@ public class Invoice implements Visitable {
         this.id = id;
     }
 
-    @ApiModelProperty(value = "Date", required = true)
+    @ApiModelProperty(value = "Date", required = true, example = "2019-04-13")
     public LocalDate getDate() {
         return date;
     }

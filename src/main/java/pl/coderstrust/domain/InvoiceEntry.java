@@ -12,7 +12,7 @@ public class InvoiceEntry {
     private Double nettValue;
     private Double grossValue;
 
-    @ApiModelProperty(value = "Item name", required = true)
+    @ApiModelProperty(value = "Item name", required = true, example = "Apple 6" )
     public String getName() {
         return name;
     }
@@ -21,7 +21,7 @@ public class InvoiceEntry {
         this.name = name;
     }
 
-    @ApiModelProperty(value = "Vat value", required = true)
+    @ApiModelProperty(value = "Vat value", required = true, example = "168,11")
     public Vat getVat() {
         return vat;
     }
@@ -30,7 +30,7 @@ public class InvoiceEntry {
         this.vat = vat;
     }
 
-    @ApiModelProperty(value = "Nett value", required = true)
+    @ApiModelProperty(value = "Nett value", required = true, example = "730,89")
     public Double getNettValue() {
         return nettValue;
     }
@@ -39,7 +39,7 @@ public class InvoiceEntry {
         this.nettValue = nettValue;
     }
 
-    @ApiModelProperty(value = "Gross value", required = true)
+    @ApiModelProperty(value = "Gross value", required = true, example = "899")
     public Double getGrossValue() {
         return grossValue;
     }
