@@ -104,4 +104,6 @@ public class Company {
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
+
+
 }
