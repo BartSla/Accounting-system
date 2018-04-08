@@ -1,9 +1,12 @@
 package pl.coderstrust.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import pl.coderstrust.processing.Vat;
 
 import java.math.BigDecimal;
 
+@ApiModel(value= "Items list", description="List of items")
 public class InvoiceEntry {
 
     private String name;
@@ -11,6 +14,7 @@ public class InvoiceEntry {
     private BigDecimal nettValue;
     private BigDecimal grossValue;
 
+    @ApiModelProperty(value = "Item name", required = true, example = "Apple 6" )
     public String getName() {
         return name;
     }
@@ -19,6 +23,7 @@ public class InvoiceEntry {
         this.name = name;
     }
 
+    @ApiModelProperty(value = "Vat value", required = true, example = "EIGHT")
     public Vat getVat() {
         return vat;
     }
@@ -27,6 +32,7 @@ public class InvoiceEntry {
         this.vat = vat;
     }
 
+    @ApiModelProperty(value = "Nett value", required = true, example = "730.89")
     public BigDecimal getNettValue() {
         return nettValue;
     }
@@ -35,6 +41,7 @@ public class InvoiceEntry {
         this.nettValue = nettValue;
     }
 
+    @ApiModelProperty(value = "Gross value", required = true, example = "899.67")
     public BigDecimal getGrossValue() {
         return grossValue;
     }

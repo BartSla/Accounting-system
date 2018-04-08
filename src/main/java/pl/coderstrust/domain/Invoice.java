@@ -1,8 +1,12 @@
 package pl.coderstrust.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.time.LocalDate;
 import java.util.List;
 
+@ApiModel(value= "Invoice", description="Sample model of invoice")
 public class Invoice {
 
     private Company buyer;
@@ -37,6 +41,7 @@ public class Invoice {
         this.entryList = entryList;
     }
 
+    @ApiModelProperty(value = "Buyer", required = true)
     public Company getBuyer() {
         return buyer;
     }
@@ -45,6 +50,7 @@ public class Invoice {
         this.buyer = buyer;
     }
 
+    @ApiModelProperty(value = "Seller", required = true)
     public Company getSeller() {
         return seller;
     }
@@ -53,6 +59,7 @@ public class Invoice {
         this.seller = seller;
     }
 
+    @ApiModelProperty(value = "ID number", example = "111")
     public int getId() {
         return id;
     }
@@ -61,6 +68,7 @@ public class Invoice {
         this.id = id;
     }
 
+    @ApiModelProperty(value = "Date", required = true, example = "2019-04-13")
     public LocalDate getDate() {
         return date;
     }
