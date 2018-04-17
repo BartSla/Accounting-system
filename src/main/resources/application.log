@@ -4765,3 +4765,295 @@ Caused by: java.lang.ClassNotFoundException: javax.validation.ClockProvider
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_162]
 	... 62 common frames omitted
 
+2018-04-17 23:26:46.312  INFO 12329 --- [main] pl.coderstrust.Application               : Starting Application on piotr-macbook.local with PID 12329 (/Users/piotr/WORK/GIT/project-4-bartek-filip-grzegorz/target/classes started by piotr in /Users/piotr/WORK/GIT/project-4-bartek-filip-grzegorz)
+2018-04-17 23:26:46.316  INFO 12329 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-17 23:26:46.411  INFO 12329 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3ee0fea4: startup date [Tue Apr 17 23:26:46 CEST 2018]; root of context hierarchy
+2018-04-17 23:26:47.461  WARN 12329 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatEmbeddedServletContainerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': Initialization of bean failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/validator/internal/engine/DefaultClockProvider
+2018-04-17 23:26:47.466  INFO 12329 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-04-17 23:26:47.475 ERROR 12329 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatEmbeddedServletContainerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': Initialization of bean failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/validator/internal/engine/DefaultClockProvider
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.onRefresh(EmbeddedWebApplicationContext.java:137) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:537) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at pl.coderstrust.Application.main(Application.java:10) [classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatEmbeddedServletContainerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': Initialization of bean failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/validator/internal/engine/DefaultClockProvider
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.getEmbeddedServletContainerFactory(EmbeddedWebApplicationContext.java:199) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.createEmbeddedServletContainer(EmbeddedWebApplicationContext.java:162) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.onRefresh(EmbeddedWebApplicationContext.java:134) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': Initialization of bean failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/validator/internal/engine/DefaultClockProvider
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1193) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1095) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:519) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizerBeanPostProcessor.getCustomizers(EmbeddedServletContainerCustomizerBeanPostProcessor.java:82) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizerBeanPostProcessor.postProcessBeforeInitialization(EmbeddedServletContainerCustomizerBeanPostProcessor.java:72) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizerBeanPostProcessor.postProcessBeforeInitialization(EmbeddedServletContainerCustomizerBeanPostProcessor.java:59) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:409) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1620) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 16 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties': Initialization of bean failed; nested exception is java.lang.NoClassDefFoundError: org/hibernate/validator/internal/engine/DefaultClockProvider
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 41 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/hibernate/validator/internal/engine/DefaultClockProvider
+	at org.hibernate.validator.internal.engine.ConfigurationImpl.<init>(ConfigurationImpl.java:134) ~[hibernate-validator-6.0.7.Final.jar:6.0.7.Final]
+	at org.hibernate.validator.internal.engine.ConfigurationImpl.<init>(ConfigurationImpl.java:107) ~[hibernate-validator-6.0.7.Final.jar:6.0.7.Final]
+	at org.hibernate.validator.HibernateValidator.createGenericConfiguration(HibernateValidator.java:33) ~[hibernate-validator-6.0.7.Final.jar:6.0.7.Final]
+	at javax.validation.Validation$GenericBootstrapImpl.configure(Validation.java:276) ~[validation-api-1.1.0.Final.jar:na]
+	at org.springframework.boot.validation.MessageInterpolatorFactory.getObject(MessageInterpolatorFactory.java:53) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor$ValidatedLocalValidatorFactoryBean.<init>(ConfigurationPropertiesBindingPostProcessor.java:412) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.getValidator(ConfigurationPropertiesBindingPostProcessor.java:369) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.determineValidator(ConfigurationPropertiesBindingPostProcessor.java:353) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization(ConfigurationPropertiesBindingPostProcessor.java:315) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization(ConfigurationPropertiesBindingPostProcessor.java:292) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:409) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1620) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 51 common frames omitted
+
+2018-04-17 23:28:24.472  INFO 12372 --- [main] pl.coderstrust.Application               : Starting Application on piotr-macbook.local with PID 12372 (/Users/piotr/WORK/GIT/project-4-bartek-filip-grzegorz/target/classes started by piotr in /Users/piotr/WORK/GIT/project-4-bartek-filip-grzegorz)
+2018-04-17 23:28:24.476  INFO 12372 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-17 23:28:24.523  INFO 12372 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161b062a: startup date [Tue Apr 17 23:28:24 CEST 2018]; root of context hierarchy
+2018-04-17 23:28:25.700  INFO 12372 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9999 (http)
+2018-04-17 23:28:25.711  INFO 12372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-17 23:28:25.713  INFO 12372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-04-17 23:28:25.805  INFO 12372 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-17 23:28:25.805  INFO 12372 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1285 ms
+2018-04-17 23:28:25.923  INFO 12372 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-17 23:28:25.926  INFO 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-17 23:28:25.927  INFO 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-17 23:28:25.927  INFO 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-17 23:28:25.927  INFO 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-17 23:28:25.927  INFO 12372 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'logFilter' to: [/*]
+2018-04-17 23:28:25.946 DEBUG 12372 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'logFilter'
+2018-04-17 23:28:25.946 DEBUG 12372 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured successfully
+2018-04-17 23:28:26.268  INFO 12372 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-04-17 23:28:26.315  INFO 12372 --- [cluster-ClusterId{value='5ad666fad550bf3054a0ba5e', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.connection.SocketStream.open(SocketStream.java:63) ~[mongodb-driver-core-3.4.3.jar:na]
+	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:115) ~[mongodb-driver-core-3.4.3.jar:na]
+	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:113) ~[mongodb-driver-core-3.4.3.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_151]
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_151]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_151]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_151]
+	at com.mongodb.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:57) ~[mongodb-driver-core-3.4.3.jar:na]
+	at com.mongodb.connection.SocketStream.open(SocketStream.java:58) ~[mongodb-driver-core-3.4.3.jar:na]
+	... 3 common frames omitted
+
+2018-04-17 23:28:26.495  WARN 12372 --- [main] o.s.d.m.c.m.BasicMongoPersistentProperty : Customizing field name for id property not allowed! Custom name will not be considered!
+2018-04-17 23:28:26.818  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getAllInvoices()
+2018-04-17 23:28:26.820  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[GET]}" onto public pl.coderstrust.domain.Invoice pl.coderstrust.controller.InvoiceController.getInvoice(int)
+2018-04-17 23:28:26.820  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[PUT]}" onto public void pl.coderstrust.controller.InvoiceController.updateInvoice(pl.coderstrust.domain.Invoice)
+2018-04-17 23:28:26.820  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[DELETE]}" onto public void pl.coderstrust.controller.InvoiceController.removeInvoice(int)
+2018-04-17 23:28:26.820  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[POST]}" onto public void pl.coderstrust.controller.InvoiceController.addInvoice(pl.coderstrust.domain.Invoice)
+2018-04-17 23:28:26.821  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoicesByDate],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getInvoicesInDateRange(java.time.LocalDate,java.time.LocalDate)
+2018-04-17 23:28:26.821  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcomeVat()
+2018-04-17 23:28:26.821  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/incomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncomeVat()
+2018-04-17 23:28:26.821  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/income],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncome()
+2018-04-17 23:28:26.822  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcome],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcome()
+2018-04-17 23:28:26.826  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-04-17 23:28:26.827  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-04-17 23:28:26.828  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-04-17 23:28:26.830  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-17 23:28:26.831  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-17 23:28:26.933  INFO 12372 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-17 23:28:27.075  INFO 12372 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161b062a: startup date [Tue Apr 17 23:28:24 CEST 2018]; root of context hierarchy
+2018-04-17 23:28:27.122  INFO 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-17 23:28:27.122  INFO 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-17 23:28:27.147  INFO 12372 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-17 23:28:27.256  INFO 12372 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-17 23:28:27.264  INFO 12372 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-04-17 23:28:27.264  INFO 12372 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-17 23:28:27.286  INFO 12372 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-04-17 23:28:27.335  INFO 12372 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-17 23:28:27.606  INFO 12372 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9999 (http)
+2018-04-17 23:28:27.611  INFO 12372 --- [main] pl.coderstrust.Application               : Started Application in 3.399 seconds (JVM running for 4.008)
+2018-04-17 23:29:26.370  INFO 12372 --- [cluster-ClusterId{value='5ad666fad550bf3054a0ba5e', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:1}] to localhost:27017
+2018-04-17 23:29:26.372  INFO 12372 --- [cluster-ClusterId{value='5ad666fad550bf3054a0ba5e', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 2]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, roundTripTimeNanos=446734}
+2018-04-17 23:29:49.249  INFO 12372 --- [Thread-10] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161b062a: startup date [Tue Apr 17 23:28:24 CEST 2018]; root of context hierarchy
+2018-04-17 23:29:49.251  INFO 12372 --- [Thread-10] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2018-04-17 23:29:49.252  INFO 12372 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-17 23:29:51.702  INFO 12406 --- [main] pl.coderstrust.Application               : Starting Application on piotr-macbook.local with PID 12406 (/Users/piotr/WORK/GIT/project-4-bartek-filip-grzegorz/target/classes started by piotr in /Users/piotr/WORK/GIT/project-4-bartek-filip-grzegorz)
+2018-04-17 23:29:51.704  INFO 12406 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-17 23:29:51.747  INFO 12406 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161b062a: startup date [Tue Apr 17 23:29:51 CEST 2018]; root of context hierarchy
+2018-04-17 23:29:52.854  INFO 12406 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9999 (http)
+2018-04-17 23:29:52.863  INFO 12406 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-17 23:29:52.864  INFO 12406 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-04-17 23:29:52.952  INFO 12406 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-17 23:29:52.953  INFO 12406 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1210 ms
+2018-04-17 23:29:53.084  INFO 12406 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-17 23:29:53.087  INFO 12406 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-17 23:29:53.088  INFO 12406 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-17 23:29:53.088  INFO 12406 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-17 23:29:53.088  INFO 12406 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-17 23:29:53.089  INFO 12406 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'logFilter' to: [/*]
+2018-04-17 23:29:53.102 DEBUG 12406 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'logFilter'
+2018-04-17 23:29:53.102 DEBUG 12406 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured successfully
+2018-04-17 23:29:53.346  INFO 12406 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2018-04-17 23:29:53.389  INFO 12406 --- [cluster-ClusterId{value='5ad66751d550bf3076b1874a', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:2}] to localhost:27017
+2018-04-17 23:29:53.391  INFO 12406 --- [cluster-ClusterId{value='5ad66751d550bf3076b1874a', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 2]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, roundTripTimeNanos=511714}
+2018-04-17 23:29:53.506  WARN 12406 --- [main] o.s.d.m.c.m.BasicMongoPersistentProperty : Customizing field name for id property not allowed! Custom name will not be considered!
+2018-04-17 23:29:53.786  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getAllInvoices()
+2018-04-17 23:29:53.787  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[GET]}" onto public pl.coderstrust.domain.Invoice pl.coderstrust.controller.InvoiceController.getInvoice(int)
+2018-04-17 23:29:53.788  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[PUT]}" onto public void pl.coderstrust.controller.InvoiceController.updateInvoice(pl.coderstrust.domain.Invoice)
+2018-04-17 23:29:53.788  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[DELETE]}" onto public void pl.coderstrust.controller.InvoiceController.removeInvoice(int)
+2018-04-17 23:29:53.788  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[POST]}" onto public void pl.coderstrust.controller.InvoiceController.addInvoice(pl.coderstrust.domain.Invoice)
+2018-04-17 23:29:53.789  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoicesByDate],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getInvoicesInDateRange(java.time.LocalDate,java.time.LocalDate)
+2018-04-17 23:29:53.789  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcome],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcome()
+2018-04-17 23:29:53.790  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcomeVat()
+2018-04-17 23:29:53.790  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/incomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncomeVat()
+2018-04-17 23:29:53.790  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/income],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncome()
+2018-04-17 23:29:53.795  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-04-17 23:29:53.795  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-04-17 23:29:53.796  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-04-17 23:29:53.799  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-17 23:29:53.799  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-17 23:29:53.889  INFO 12406 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-17 23:29:54.010  INFO 12406 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161b062a: startup date [Tue Apr 17 23:29:51 CEST 2018]; root of context hierarchy
+2018-04-17 23:29:54.059  INFO 12406 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-17 23:29:54.060  INFO 12406 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-17 23:29:54.094  INFO 12406 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-17 23:29:54.251  INFO 12406 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-17 23:29:54.258  INFO 12406 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-04-17 23:29:54.258  INFO 12406 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-17 23:29:54.269  INFO 12406 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-04-17 23:29:54.316  INFO 12406 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-17 23:29:54.596  INFO 12406 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9999 (http)
+2018-04-17 23:29:54.602  INFO 12406 --- [main] pl.coderstrust.Application               : Started Application in 3.137 seconds (JVM running for 3.661)
+2018-04-17 23:30:45.657  INFO 12406 --- [http-nio-9999-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-17 23:30:45.657  INFO 12406 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-17 23:30:45.671  INFO 12406 --- [http-nio-9999-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-04-17 23:30:45.684 DEBUG 12406 --- [http-nio-9999-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/swagger-ui.html]
+2018-04-17 23:30:45.700 DEBUG 12406 --- [http-nio-9999-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/swagger-ui.html]
+2018-04-17 23:30:45.971 DEBUG 12406 --- [http-nio-9999-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/css/typography.css]
+2018-04-17 23:30:45.972 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/css/screen.css]
+2018-04-17 23:30:45.973 DEBUG 12406 --- [http-nio-9999-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js]
+2018-04-17 23:30:45.972 DEBUG 12406 --- [http-nio-9999-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js]
+2018-04-17 23:30:45.975 DEBUG 12406 --- [http-nio-9999-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/css/reset.css]
+2018-04-17 23:30:45.978 DEBUG 12406 --- [http-nio-9999-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/jquery.slideto.min.js]
+2018-04-17 23:30:45.984 DEBUG 12406 --- [http-nio-9999-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js]
+2018-04-17 23:30:45.985 DEBUG 12406 --- [http-nio-9999-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/css/typography.css]
+2018-04-17 23:30:45.986 DEBUG 12406 --- [http-nio-9999-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/jquery.slideto.min.js]
+2018-04-17 23:30:45.987 DEBUG 12406 --- [http-nio-9999-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js]
+2018-04-17 23:30:45.990 DEBUG 12406 --- [http-nio-9999-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/css/reset.css]
+2018-04-17 23:30:45.991 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/css/screen.css]
+2018-04-17 23:30:45.992 DEBUG 12406 --- [http-nio-9999-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js]
+2018-04-17 23:30:45.992 DEBUG 12406 --- [http-nio-9999-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js]
+2018-04-17 23:30:45.994 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js]
+2018-04-17 23:30:45.996 DEBUG 12406 --- [http-nio-9999-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/lodash.min.js]
+2018-04-17 23:30:45.998 DEBUG 12406 --- [http-nio-9999-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js]
+2018-04-17 23:30:46.001 DEBUG 12406 --- [http-nio-9999-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js]
+2018-04-17 23:30:46.001 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js]
+2018-04-17 23:30:46.002 DEBUG 12406 --- [http-nio-9999-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/lodash.min.js]
+2018-04-17 23:30:46.010 DEBUG 12406 --- [http-nio-9999-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/backbone-min.js]
+2018-04-17 23:30:46.014 DEBUG 12406 --- [http-nio-9999-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/backbone-min.js]
+2018-04-17 23:30:46.018 DEBUG 12406 --- [http-nio-9999-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js]
+2018-04-17 23:30:46.019 DEBUG 12406 --- [http-nio-9999-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js]
+2018-04-17 23:30:46.018 DEBUG 12406 --- [http-nio-9999-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/swagger-ui.min.js]
+2018-04-17 23:30:46.021 DEBUG 12406 --- [http-nio-9999-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/jsoneditor.min.js]
+2018-04-17 23:30:46.022 DEBUG 12406 --- [http-nio-9999-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js]
+2018-04-17 23:30:46.022 DEBUG 12406 --- [http-nio-9999-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js]
+2018-04-17 23:30:46.023 DEBUG 12406 --- [http-nio-9999-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/marked.js]
+2018-04-17 23:30:46.024 DEBUG 12406 --- [http-nio-9999-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/lib/swagger-oauth.js]
+2018-04-17 23:30:46.026 DEBUG 12406 --- [http-nio-9999-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/marked.js]
+2018-04-17 23:30:46.028 DEBUG 12406 --- [http-nio-9999-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/jsoneditor.min.js]
+2018-04-17 23:30:46.030 DEBUG 12406 --- [http-nio-9999-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/lib/swagger-oauth.js]
+2018-04-17 23:30:46.032 DEBUG 12406 --- [http-nio-9999-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/springfox.js]
+2018-04-17 23:30:46.034 DEBUG 12406 --- [http-nio-9999-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/swagger-ui.min.js]
+2018-04-17 23:30:46.035 DEBUG 12406 --- [http-nio-9999-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/springfox.js]
+2018-04-17 23:30:46.043 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/images/logo_small.png]
+2018-04-17 23:30:46.045 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/images/logo_small.png]
+2018-04-17 23:30:46.051 DEBUG 12406 --- [http-nio-9999-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/css/print.css]
+2018-04-17 23:30:46.054 DEBUG 12406 --- [http-nio-9999-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/css/print.css]
+2018-04-17 23:30:46.259 DEBUG 12406 --- [http-nio-9999-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/swagger-resources/configuration/ui]
+2018-04-17 23:30:46.303 DEBUG 12406 --- [http-nio-9999-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/swagger-resources/configuration/ui]
+2018-04-17 23:30:46.396 DEBUG 12406 --- [http-nio-9999-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/swagger-resources]
+2018-04-17 23:30:46.402 DEBUG 12406 --- [http-nio-9999-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/swagger-resources]
+2018-04-17 23:30:46.592 DEBUG 12406 --- [http-nio-9999-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/v2/api-docs]
+2018-04-17 23:30:46.631 DEBUG 12406 --- [http-nio-9999-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/images/favicon-32x32.png]
+2018-04-17 23:30:46.634 DEBUG 12406 --- [http-nio-9999-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/images/favicon-32x32.png]
+2018-04-17 23:30:46.661 DEBUG 12406 --- [http-nio-9999-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/images/favicon-16x16.png]
+2018-04-17 23:30:46.663 DEBUG 12406 --- [http-nio-9999-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/images/favicon-16x16.png]
+2018-04-17 23:30:46.733 DEBUG 12406 --- [http-nio-9999-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/v2/api-docs]
+2018-04-17 23:30:46.822 DEBUG 12406 --- [http-nio-9999-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/swagger-resources/configuration/security]
+2018-04-17 23:30:46.825 DEBUG 12406 --- [http-nio-9999-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/swagger-resources/configuration/security]
+2018-04-17 23:30:50.352 DEBUG 12406 --- [http-nio-9999-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/webjars/springfox-swagger-ui/images/throbber.gif]
+2018-04-17 23:30:50.355 DEBUG 12406 --- [http-nio-9999-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/webjars/springfox-swagger-ui/images/throbber.gif]
+2018-04-17 23:30:55.418 DEBUG 12406 --- [http-nio-9999-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/invoice]
+2018-04-17 23:30:55.514  INFO 12406 --- [http-nio-9999-exec-8] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:3}] to localhost:27017
+2018-04-17 23:30:55.587 DEBUG 12406 --- [http-nio-9999-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/invoice;payload={
+  "buyer": {
+    "city": "Katowice",
+    "name": "string",
+    "nip": "6521585544",
+    "postcode": "40-100",
+    "streetAndNumber": "Nowa 7"
+  },
+  "date": "2019-04-13",
+  "entryList": [
+    {
+      "grossValue": 899.67,
+      "name": "Apple 6",
+      "nettValue": 730.89,
+      "vat": "EIGHT"
+    }
+  ],
+  "id": 111,
+  "idMongo": "string",
+  "seller": {
+    "city": "Katowice",
+    "name": "string",
+    "nip": "6521585544",
+    "postcode": "40-100",
+    "streetAndNumber": "Nowa 7"
+  }
+}]
+2018-04-17 23:31:08.789 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/invoices]
+2018-04-17 23:31:08.833 DEBUG 12406 --- [http-nio-9999-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/invoices]
