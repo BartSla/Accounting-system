@@ -1,2 +1,1 @@
 {"buyer":{"name":"ABC3","nip":"896","streetAndNumber":"New1","city":"Wroclaw","postcode":"55-120"},"seller":{"name":"QWE3","nip":"987","streetAndNumber":"Old1","city":"Wroclaw","postcode":"55106"},"id":5,"date":"2018-02-03","entryList":null}
-{"buyer":{"name":"string","nip":"6521585544","streetAndNumber":"Nowa 7","city":"Katowice","postcode":"40-100"},"seller":{"name":"string","nip":"6521585544","streetAndNumber":"Nowa 7","city":"Katowice","postcode":"40-100"},"id":111,"date":"2019-04-13","entryList":[{"name":"Apple 6","vat":"EIGHT","nettValue":730.89,"grossValue":899.67}]}

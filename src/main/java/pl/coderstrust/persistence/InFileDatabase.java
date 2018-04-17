@@ -3,7 +3,9 @@ package pl.coderstrust.persistence;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.stereotype.Repository;
 import pl.coderstrust.domain.Invoice;
 
 import java.io.IOException;
@@ -11,13 +13,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
 @Repository
 @ConditionalOnProperty(name = "pl.coderstrust.database", havingValue = "inFile")
 public class InFileDatabase implements Database {
-
 
     private static final Logger logger = LoggerFactory.getLogger(InFileDatabase.class);
 
