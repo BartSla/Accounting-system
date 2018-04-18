@@ -5,14 +5,25 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.time.LocalDate;
 import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Invoices")
 @ApiModel(value= "Invoice", description="Sample model of invoice")
 public class Invoice {
 
-    private Company buyer;
-    private Company seller;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
+    @Transient
+    private Company buyer;
+    @Transient
+    private Company seller;
+    @Column
+
     private LocalDate date;
+//    @OneToMany
+    @Transient
     private List<InvoiceEntry> entryList;
 
     public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {

@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import pl.coderstrust.processing.Vat;
 
 import java.math.BigDecimal;
+import javax.persistence.*;
+
 
 @ApiModel(value= "Items list", description="List of items")
 public class InvoiceEntry {
