@@ -3,8 +3,20 @@ package pl.coderstrust.domain;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Company")
 @ApiModel(value= "Company", description="Company data")
 public class Company {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
 
     private String name;
     private String nip;

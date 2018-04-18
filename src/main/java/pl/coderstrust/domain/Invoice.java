@@ -15,15 +15,17 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    @Transient
-    private Company buyer;
-    @Transient
-    private Company seller;
-    @Column
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Company buyer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Company seller;
+
+    @Column
     private LocalDate date;
-//    @OneToMany
-    @Transient
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<InvoiceEntry> entryList;
 
     public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
