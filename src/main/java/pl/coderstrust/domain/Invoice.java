@@ -1,5 +1,6 @@
 package pl.coderstrust.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
@@ -11,6 +12,8 @@ import java.util.List;
 public class Invoice {
 
     @Id
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
     private String idMongo;
 
     private Company buyer;
