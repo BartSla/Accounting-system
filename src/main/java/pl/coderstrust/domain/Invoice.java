@@ -1,13 +1,20 @@
 package pl.coderstrust.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @ApiModel(value= "Invoice", description="Sample model of invoice")
 public class Invoice {
+
+    @Id
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
+    private String idMongo;
 
     private Company buyer;
     private Company seller;
@@ -28,6 +35,19 @@ public class Invoice {
         this.seller = seller;
         this.id = id;
         this.date = date;
+    }
+
+    public Invoice(String idMongo,Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+        this.idMongo = idMongo;
+        this.buyer = buyer;
+        this.seller = seller;
+        this.id = id;
+        this.date = date;
+        this.entryList = entryList;
+    }
+
+    public String getIdMongo() {
+        return idMongo;
     }
 
     public Invoice() {
