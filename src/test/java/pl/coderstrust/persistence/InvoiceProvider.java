@@ -12,23 +12,23 @@ import java.util.List;
 
 public class InvoiceProvider {
     private Vat vat= Vat.TWENTY_THREE;
-    private Company buyer = new Company("ABC1", 0, "000", "New1", "Wroclaw", "55-120");
-    private Company buyer1 = new Company("ABC2", 1,"111", "New1", "Wroclaw", "55-120");
-    private Company buyer2 = new Company("ABC3",2, "222", "New1", "Wroclaw", "55-120");
-    private Company buyer3 = new Company("ABC4", 3, "333", "New1", "Wroclaw", "55-120");
-    private Company buyer4 = new Company("ABC5", 4, "444", "New1", "Wroclaw", "55-120");
-    private Company seller = new Company("QWE1", 5, "aaa", "Old1", "Wroclaw", "55106");
-    private Company seller1 = new Company("QWE2", 6, "bbb", "Old1", "Wroclaw", "55106");
-    private Company seller2 = new Company("QWE3", 7, "ccc", "Old1", "Wroclaw", "55106");
-    private Company seller3 = new Company("QWE4", 8, "ddd", "Old1", "Wroclaw", "55106");
-    private Company seller4 = new Company("QWE5", 9,"fff", "Old1", "Wroclaw", "55106");
+    private Company buyer = new Company("ABC1",1, "896", "New1", "Wroclaw", "55-120");
+    private Company buyer1 = new Company("ABC2", 2,"896", "New1", "Wroclaw", "55-120");
+    private Company buyer2 = new Company("ABC3", 3,"896", "New1", "Wroclaw", "55-120");
+    private Company buyer3 = new Company("ABC4", 4,"896", "New1", "Wroclaw", "55-120");
+    private Company buyer4 = new Company("ABC5", 5,"896", "New1", "Wroclaw", "55-120");
+    private Company seller = new Company("QWE1", 6,"987", "Old1", "Wroclaw", "55106");
+    private Company seller1 = new Company("QWE2", 7,"987", "Old1", "Wroclaw", "55106");
+    private Company seller2 = new Company("QWE3", 8,"987", "Old1", "Wroclaw", "55106");
+    private Company seller3 = new Company("QWE4", 9,"987", "Old1", "Wroclaw", "55106");
+    private Company seller4 = new Company("QWE5", 10,"987", "Old1", "Wroclaw", "55106");
 
-    public Invoice invoice = new Invoice(buyer, seller, 0, LocalDate.of(2017, 1, 30), getListOfOneInvoiceEntry());
+    public Invoice invoice = new Invoice(seller, buyer, 0, LocalDate.of(2018, 1, 30), getListOfOneInvoiceEntry());
     public Invoice invoice1 = new Invoice(buyer, seller1, 1, LocalDate.of(2018, 2, 1),getListOf2InvoiceEntry());
     public Invoice invoice2 = new Invoice(buyer, seller2, 2, LocalDate.of(2018, 2, 3),getListOf3InvoiceEntry());
     public Invoice invoice3 = new Invoice(buyer3, seller3, 3, LocalDate.of(2018, 2, 5));
     public Invoice invoice4 = new Invoice(buyer4, seller4, 4, LocalDate.of(2018, 2, 9));
-    public Invoice invoiceToUpdate = new Invoice(buyer, seller1, 2, LocalDate.of(2111, 2, 1), getListOfOneInvoiceEntry());
+    public Invoice invoiceToUpdate = new Invoice(buyer1, seller1, 2, LocalDate.of(2018, 2, 1), getListOfOneInvoiceEntry());
 
 
     public List<InvoiceEntry> getListOfOneInvoiceEntry(){
@@ -46,7 +46,7 @@ public class InvoiceProvider {
         return  invoiceEntries;
     }
     public List<InvoiceEntry> getListOf3InvoiceEntry(){
-        InvoiceEntry invoiceEntry = new InvoiceEntry("ołówek",vat, new BigDecimal(100.00), new BigDecimal(123));
+        InvoiceEntry invoiceEntry = new InvoiceEntry("ołówek",vat, new BigDecimal(100), new BigDecimal(123));
         InvoiceEntry invoiceEntry1 = new InvoiceEntry("pióro",vat, new BigDecimal(200), new BigDecimal(246));
         InvoiceEntry invoiceEntry2 = new InvoiceEntry("flamaster",vat, new BigDecimal(50), new BigDecimal(61.50));
         List<InvoiceEntry> invoiceEntries = new ArrayList<>();
@@ -58,7 +58,7 @@ public class InvoiceProvider {
 
     public List<Invoice> getListOf1Invoices() {
         List<Invoice> invoices = new ArrayList<>();
-        invoices.add(invoice1);
+        invoices.add(invoice);
         return invoices;
     }
 
