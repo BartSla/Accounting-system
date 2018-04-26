@@ -18,7 +18,7 @@ public class InMemoryDatabaseTest {
 
     @Test
     public void saveInvoice() throws Exception {
-        inMemoryDatabase.saveInvoice(invoiceProvider.invoice);
+        inMemoryDatabase.saveInvoice(invoiceProvider.invoice1);
         assertEquals(invoiceProvider.getListOf1Invoices(), inMemoryDatabase.getAllInvoices());
     }
 

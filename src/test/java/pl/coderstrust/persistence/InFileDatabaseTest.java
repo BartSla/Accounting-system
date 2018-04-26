@@ -29,7 +29,7 @@ public class InFileDatabaseTest {
 
     @Test
     public void shouldSaveAndGetInvoice() throws Exception {
-        inFileDatabase.saveInvoice(invoiceProvider.invoice);
+        inFileDatabase.saveInvoice(invoiceProvider.invoice1);
         assertEquals(invoiceProvider.getListOf1Invoices(), inFileDatabase.getAllInvoices());
     }
 

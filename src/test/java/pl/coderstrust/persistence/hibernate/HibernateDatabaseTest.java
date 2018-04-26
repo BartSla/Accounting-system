@@ -32,26 +32,20 @@ public class HibernateDatabaseTest {
 
   @Test
   public void shouldSaveInvoiceInDatabase() {
-    //given
+
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
 
-    //when
     Invoice testInvoice = hibernateDatabase.getInvoiceById(1);
 
-    //then
     assertEquals(invoiceProvider.invoice1, testInvoice);
   }
 
   @Test
   public void shouldGetAllInvoices() {
-    //given
-    invoiceRepository.deleteAll();
 
-    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
 
-    //then
     assertEquals(2, hibernateDatabase.getAllInvoices().size());
   }
 
@@ -75,13 +69,11 @@ public class HibernateDatabaseTest {
 
     hibernateDatabase.updateInvoice(invoiceProvider.invoiceToUpdate);
 
-    //then
     assertEquals(invoiceProvider.invoiceToUpdate,hibernateDatabase.getInvoiceById(2));
   }
 
   @Test
   public void shouldRemoveInvoiceFromDatabase() {
-
 
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);

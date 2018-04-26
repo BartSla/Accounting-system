@@ -1,0 +1,390 @@
+2018-04-26 19:25:35.104  INFO 6092 --- [main] pl.coderstrust.Application               : Starting Application on Virus with PID 6092 (C:\WORK\project-4-bartek-filip-grzegorz\target\classes started by Ave in C:\WORK\project-4-bartek-filip-grzegorz)
+2018-04-26 19:25:35.109  INFO 6092 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-26 19:25:35.235  INFO 6092 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6385cb26: startup date [Thu Apr 26 19:25:35 CEST 2018]; root of context hierarchy
+2018-04-26 19:25:38.706  INFO 6092 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-26 19:25:38.741  INFO 6092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-26 19:25:38.743  INFO 6092 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-04-26 19:25:38.991  INFO 6092 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-26 19:25:38.992  INFO 6092 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3763 ms
+2018-04-26 19:25:39.208  INFO 6092 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-26 19:25:39.239  INFO 6092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-26 19:25:39.242  INFO 6092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-26 19:25:39.242  INFO 6092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-26 19:25:39.249  INFO 6092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-26 19:25:39.249  INFO 6092 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'logFilter' to: [/*]
+2018-04-26 19:25:39.334 DEBUG 6092 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'logFilter'
+2018-04-26 19:25:39.334 DEBUG 6092 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured successfully
+2018-04-26 19:25:40.038  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoicesByDate],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getInvoicesInDateRange(java.time.LocalDate,java.time.LocalDate)
+2018-04-26 19:25:40.040  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getAllInvoices()
+2018-04-26 19:25:40.040  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[GET]}" onto public pl.coderstrust.domain.Invoice pl.coderstrust.controller.InvoiceController.getInvoice(int)
+2018-04-26 19:25:40.041  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[PUT]}" onto public void pl.coderstrust.controller.InvoiceController.updateInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 19:25:40.041  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[DELETE]}" onto public void pl.coderstrust.controller.InvoiceController.removeInvoice(int)
+2018-04-26 19:25:40.041  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[POST]}" onto public void pl.coderstrust.controller.InvoiceController.addInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 19:25:40.042  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcome],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcome()
+2018-04-26 19:25:40.043  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/incomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncomeVat()
+2018-04-26 19:25:40.044  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcomeVat()
+2018-04-26 19:25:40.045  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/income],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncome()
+2018-04-26 19:25:40.056  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-04-26 19:25:40.057  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-04-26 19:25:40.059  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-04-26 19:25:40.063  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-26 19:25:40.064  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-26 19:25:40.408  INFO 6092 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-26 19:25:40.715  INFO 6092 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6385cb26: startup date [Thu Apr 26 19:25:35 CEST 2018]; root of context hierarchy
+2018-04-26 19:25:40.815  INFO 6092 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:25:40.815  INFO 6092 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:25:40.871  INFO 6092 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:25:41.111  INFO 6092 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-26 19:25:41.125  INFO 6092 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-04-26 19:25:41.125  INFO 6092 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-26 19:25:41.160  INFO 6092 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-04-26 19:25:41.271  INFO 6092 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-26 19:25:41.683  INFO 6092 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-26 19:25:41.688  INFO 6092 --- [main] pl.coderstrust.Application               : Started Application in 7.117 seconds (JVM running for 7.838)
+2018-04-26 19:25:50.594  INFO 6092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-26 19:25:50.595  INFO 6092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-26 19:25:50.742  INFO 6092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 146 ms
+2018-04-26 19:25:50.806 DEBUG 6092 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-ui.html]
+2018-04-26 19:25:50.843 DEBUG 6092 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-ui.html]
+2018-04-26 19:25:52.508 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/typography.css]
+2018-04-26 19:25:52.512 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/typography.css]
+2018-04-26 19:25:52.603 DEBUG 6092 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/reset.css]
+2018-04-26 19:25:52.606 DEBUG 6092 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/reset.css]
+2018-04-26 19:25:52.633 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/screen.css]
+2018-04-26 19:25:52.636 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js]
+2018-04-26 19:25:52.637 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js]
+2018-04-26 19:25:52.639 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js]
+2018-04-26 19:25:52.640 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js]
+2018-04-26 19:25:52.642 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/screen.css]
+2018-04-26 19:25:52.645 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js]
+2018-04-26 19:25:52.647 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js]
+2018-04-26 19:25:52.651 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery.slideto.min.js]
+2018-04-26 19:25:52.653 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery.slideto.min.js]
+2018-04-26 19:25:52.655 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js]
+2018-04-26 19:25:52.658 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js]
+2018-04-26 19:25:52.716 DEBUG 6092 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js]
+2018-04-26 19:25:52.718 DEBUG 6092 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js]
+2018-04-26 19:25:52.728 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/backbone-min.js]
+2018-04-26 19:25:52.730 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/backbone-min.js]
+2018-04-26 19:25:52.734 DEBUG 6092 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js]
+2018-04-26 19:25:52.736 DEBUG 6092 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/swagger-ui.min.js]
+2018-04-26 19:25:52.737 DEBUG 6092 --- [http-nio-8080-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js]
+2018-04-26 19:25:52.742 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js]
+2018-04-26 19:25:52.744 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js]
+2018-04-26 19:25:52.741 DEBUG 6092 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/swagger-ui.min.js]
+2018-04-26 19:25:52.752 DEBUG 6092 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/lodash.min.js]
+2018-04-26 19:25:52.754 DEBUG 6092 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/lodash.min.js]
+2018-04-26 19:25:52.876 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/print.css]
+2018-04-26 19:25:52.879 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/print.css]
+2018-04-26 19:25:53.173 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jsoneditor.min.js]
+2018-04-26 19:25:53.175 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jsoneditor.min.js]
+2018-04-26 19:25:53.794 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/marked.js]
+2018-04-26 19:25:53.796 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/marked.js]
+2018-04-26 19:25:53.799 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/swagger-oauth.js]
+2018-04-26 19:25:53.801 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/swagger-oauth.js]
+2018-04-26 19:25:53.803 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/logo_small.png]
+2018-04-26 19:25:53.805 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/logo_small.png]
+2018-04-26 19:25:53.810 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/springfox.js]
+2018-04-26 19:25:53.828 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/springfox.js]
+2018-04-26 19:25:54.191 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-resources/configuration/ui]
+2018-04-26 19:25:54.424 DEBUG 6092 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/favicon-32x32.png]
+2018-04-26 19:25:54.426 DEBUG 6092 --- [http-nio-8080-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/favicon-32x32.png]
+2018-04-26 19:25:54.463 DEBUG 6092 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/favicon-16x16.png]
+2018-04-26 19:25:54.469 DEBUG 6092 --- [http-nio-8080-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/favicon-16x16.png]
+2018-04-26 19:25:54.503 DEBUG 6092 --- [http-nio-8080-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-resources/configuration/ui]
+2018-04-26 19:25:54.572 DEBUG 6092 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-resources]
+2018-04-26 19:25:54.578 DEBUG 6092 --- [http-nio-8080-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-resources]
+2018-04-26 19:25:54.611 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//v2/api-docs]
+2018-04-26 19:25:55.009 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//v2/api-docs]
+2018-04-26 19:25:55.322 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-resources/configuration/security]
+2018-04-26 19:25:55.327 DEBUG 6092 --- [http-nio-8080-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-resources/configuration/security]
+2018-04-26 19:26:02.243 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/throbber.gif]
+2018-04-26 19:26:02.245 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/throbber.gif]
+2018-04-26 19:26:05.555 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/invoices]
+2018-04-26 19:26:05.683 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/invoices]
+2018-04-26 19:30:36.655 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/invoices/income]
+2018-04-26 19:30:36.688 DEBUG 6092 --- [http-nio-8080-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/invoices/income]
+2018-04-26 19:37:41.550 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/h2-console]
+2018-04-26 19:37:41.553 DEBUG 6092 --- [http-nio-8080-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/h2-console]
+2018-04-26 19:37:42.050 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/favicon.ico]
+2018-04-26 19:37:42.147 DEBUG 6092 --- [http-nio-8080-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/favicon.ico]
+2018-04-26 19:38:04.924  INFO 5392 --- [main] pl.coderstrust.Application               : Starting Application on Virus with PID 5392 (C:\WORK\project-4-bartek-filip-grzegorz\target\classes started by Ave in C:\WORK\project-4-bartek-filip-grzegorz)
+2018-04-26 19:38:04.935  INFO 5392 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-26 19:38:05.067  INFO 5392 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Thu Apr 26 19:38:05 CEST 2018]; root of context hierarchy
+2018-04-26 19:38:08.024  INFO 5392 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3d2c2458] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-26 19:38:09.123  INFO 5392 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9876 (http)
+2018-04-26 19:38:09.156  INFO 5392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-26 19:38:09.159  INFO 5392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-04-26 19:38:09.439  INFO 5392 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-26 19:38:09.441  INFO 5392 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4387 ms
+2018-04-26 19:38:09.712  INFO 5392 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-26 19:38:09.720  INFO 5392 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-26 19:38:09.721  INFO 5392 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-26 19:38:09.723  INFO 5392 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-26 19:38:09.723  INFO 5392 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-26 19:38:09.724  INFO 5392 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'logFilter' to: [/*]
+2018-04-26 19:38:09.775 DEBUG 5392 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'logFilter'
+2018-04-26 19:38:09.778 DEBUG 5392 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured successfully
+2018-04-26 19:38:10.835  INFO 5392 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-26 19:38:10.877  INFO 5392 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-26 19:38:11.099  INFO 5392 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-26 19:38:11.103  INFO 5392 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-04-26 19:38:11.106  INFO 5392 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-04-26 19:38:11.366  INFO 5392 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-26 19:38:11.635  INFO 5392 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-04-26 19:38:12.702  INFO 5392 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-04-26 19:38:12.722  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: company
+2018-04-26 19:38:12.725  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: company
+2018-04-26 19:38:12.746  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoice_entry
+2018-04-26 19:38:12.748  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoice_entry
+2018-04-26 19:38:12.755  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices
+2018-04-26 19:38:12.756  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices
+2018-04-26 19:38:12.759  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices_entry_list
+2018-04-26 19:38:12.761  INFO 5392 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices_entry_list
+2018-04-26 19:38:12.879  INFO 5392 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-26 19:38:14.265  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoicesByDate],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getInvoicesInDateRange(java.time.LocalDate,java.time.LocalDate)
+2018-04-26 19:38:14.268  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getAllInvoices()
+2018-04-26 19:38:14.269  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[GET]}" onto public pl.coderstrust.domain.Invoice pl.coderstrust.controller.InvoiceController.getInvoice(int)
+2018-04-26 19:38:14.270  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[PUT]}" onto public void pl.coderstrust.controller.InvoiceController.updateInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 19:38:14.270  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[DELETE]}" onto public void pl.coderstrust.controller.InvoiceController.removeInvoice(int)
+2018-04-26 19:38:14.270  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[POST]}" onto public void pl.coderstrust.controller.InvoiceController.addInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 19:38:14.272  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcome],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcome()
+2018-04-26 19:38:14.273  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/incomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncomeVat()
+2018-04-26 19:38:14.273  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcomeVat()
+2018-04-26 19:38:14.273  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/income],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncome()
+2018-04-26 19:38:14.281  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-04-26 19:38:14.283  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-04-26 19:38:14.285  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-04-26 19:38:14.289  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-26 19:38:14.291  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-26 19:38:14.795  INFO 5392 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-26 19:38:15.067  INFO 5392 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Thu Apr 26 19:38:05 CEST 2018]; root of context hierarchy
+2018-04-26 19:38:15.143  INFO 5392 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:38:15.145  INFO 5392 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:38:15.192  INFO 5392 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:38:16.027  INFO 5392 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-26 19:38:16.040  INFO 5392 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-04-26 19:38:16.041  INFO 5392 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-26 19:38:17.635  INFO 5392 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-04-26 19:38:17.756  INFO 5392 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-26 19:38:18.233  INFO 5392 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9876 (http)
+2018-04-26 19:38:18.244  INFO 5392 --- [main] pl.coderstrust.Application               : Started Application in 14.09 seconds (JVM running for 15.151)
+2018-04-26 19:39:04.601  INFO 7712 --- [main] pl.coderstrust.Application               : Starting Application on Virus with PID 7712 (C:\WORK\project-4-bartek-filip-grzegorz\target\classes started by Ave in C:\WORK\project-4-bartek-filip-grzegorz)
+2018-04-26 19:39:04.615  INFO 7712 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-26 19:39:04.882  INFO 7712 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Thu Apr 26 19:39:04 CEST 2018]; root of context hierarchy
+2018-04-26 19:39:07.577  INFO 7712 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1bf5a5a0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-26 19:39:08.423  INFO 7712 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9876 (http)
+2018-04-26 19:39:08.446  INFO 7712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-26 19:39:08.449  INFO 7712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-04-26 19:39:08.667  INFO 7712 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-26 19:39:08.669  INFO 7712 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3798 ms
+2018-04-26 19:39:08.947  INFO 7712 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-26 19:39:08.957  INFO 7712 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-26 19:39:08.958  INFO 7712 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-26 19:39:08.959  INFO 7712 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-26 19:39:08.960  INFO 7712 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-26 19:39:08.960  INFO 7712 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'logFilter' to: [/*]
+2018-04-26 19:39:09.000 DEBUG 7712 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'logFilter'
+2018-04-26 19:39:09.002 DEBUG 7712 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured successfully
+2018-04-26 19:39:09.669  INFO 7712 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-26 19:39:09.694  INFO 7712 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-26 19:39:09.798  INFO 7712 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-26 19:39:09.800  INFO 7712 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-04-26 19:39:09.802  INFO 7712 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-04-26 19:39:09.970  INFO 7712 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-26 19:39:10.127  INFO 7712 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-04-26 19:39:10.805  INFO 7712 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-04-26 19:39:10.828  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: company
+2018-04-26 19:39:10.830  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: company
+2018-04-26 19:39:10.843  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoice_entry
+2018-04-26 19:39:10.845  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoice_entry
+2018-04-26 19:39:10.850  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices
+2018-04-26 19:39:10.851  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices
+2018-04-26 19:39:10.854  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices_entry_list
+2018-04-26 19:39:10.856  INFO 7712 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices_entry_list
+2018-04-26 19:39:10.946  INFO 7712 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-26 19:39:12.302  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getAllInvoices()
+2018-04-26 19:39:12.305  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[GET]}" onto public pl.coderstrust.domain.Invoice pl.coderstrust.controller.InvoiceController.getInvoice(int)
+2018-04-26 19:39:12.307  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[PUT]}" onto public void pl.coderstrust.controller.InvoiceController.updateInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 19:39:12.308  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[DELETE]}" onto public void pl.coderstrust.controller.InvoiceController.removeInvoice(int)
+2018-04-26 19:39:12.308  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[POST]}" onto public void pl.coderstrust.controller.InvoiceController.addInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 19:39:12.308  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoicesByDate],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getInvoicesInDateRange(java.time.LocalDate,java.time.LocalDate)
+2018-04-26 19:39:12.311  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcome],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcome()
+2018-04-26 19:39:12.311  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/incomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncomeVat()
+2018-04-26 19:39:12.311  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcomeVat()
+2018-04-26 19:39:12.311  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/income],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncome()
+2018-04-26 19:39:12.319  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-04-26 19:39:12.321  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-04-26 19:39:12.323  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-04-26 19:39:12.326  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-26 19:39:12.328  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-26 19:39:12.598  INFO 7712 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-26 19:39:12.879  INFO 7712 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Thu Apr 26 19:39:04 CEST 2018]; root of context hierarchy
+2018-04-26 19:39:12.958  INFO 7712 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:39:12.959  INFO 7712 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:39:13.010  INFO 7712 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 19:39:13.361  INFO 7712 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-26 19:39:13.375  INFO 7712 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-04-26 19:39:13.377  INFO 7712 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-26 19:39:13.424  INFO 7712 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-04-26 19:39:13.555  INFO 7712 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-26 19:39:13.971  INFO 7712 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9876 (http)
+2018-04-26 19:39:13.978  INFO 7712 --- [main] pl.coderstrust.Application               : Started Application in 9.952 seconds (JVM running for 10.72)
+2018-04-26 19:40:08.733  INFO 7712 --- [http-nio-9876-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-26 19:40:08.734  INFO 7712 --- [http-nio-9876-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-26 19:40:08.767  INFO 7712 --- [http-nio-9876-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
+2018-04-26 19:40:08.794 DEBUG 7712 --- [http-nio-9876-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-ui.html]
+2018-04-26 19:40:08.829 DEBUG 7712 --- [http-nio-9876-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-ui.html]
+2018-04-26 19:40:08.870 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/typography.css]
+2018-04-26 19:40:08.870 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/reset.css]
+2018-04-26 19:40:08.900 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/typography.css]
+2018-04-26 19:40:08.901 DEBUG 7712 --- [http-nio-9876-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/screen.css]
+2018-04-26 19:40:08.905 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js]
+2018-04-26 19:40:08.908 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/reset.css]
+2018-04-26 19:40:08.913 DEBUG 7712 --- [http-nio-9876-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery.slideto.min.js]
+2018-04-26 19:40:08.917 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js]
+2018-04-26 19:40:08.925 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js]
+2018-04-26 19:40:08.928 DEBUG 7712 --- [http-nio-9876-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery.slideto.min.js]
+2018-04-26 19:40:08.933 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery.wiggle.min.js]
+2018-04-26 19:40:08.946 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/object-assign-pollyfill.js]
+2018-04-26 19:40:08.951 DEBUG 7712 --- [http-nio-9876-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js]
+2018-04-26 19:40:08.956 DEBUG 7712 --- [http-nio-9876-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery.ba-bbq.min.js]
+2018-04-26 19:40:08.962 DEBUG 7712 --- [http-nio-9876-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js]
+2018-04-26 19:40:08.969 DEBUG 7712 --- [http-nio-9876-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/screen.css]
+2018-04-26 19:40:08.976 DEBUG 7712 --- [http-nio-9876-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/lodash.min.js]
+2018-04-26 19:40:08.990 DEBUG 7712 --- [http-nio-9876-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/swagger-ui.min.js]
+2018-04-26 19:40:08.996 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/backbone-min.js]
+2018-04-26 19:40:09.007 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/backbone-min.js]
+2018-04-26 19:40:09.011 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js]
+2018-04-26 19:40:09.011 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jquery-1.8.0.min.js]
+2018-04-26 19:40:09.019 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack.js]
+2018-04-26 19:40:09.037 DEBUG 7712 --- [http-nio-9876-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/handlebars-4.0.5.js]
+2018-04-26 19:40:09.044 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js]
+2018-04-26 19:40:09.057 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/highlight.9.1.0.pack_extended.js]
+2018-04-26 19:40:09.072 DEBUG 7712 --- [http-nio-9876-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/lodash.min.js]
+2018-04-26 19:40:09.075 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/jsoneditor.min.js]
+2018-04-26 19:40:09.119 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/jsoneditor.min.js]
+2018-04-26 19:40:09.122 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/css/print.css]
+2018-04-26 19:40:09.171 DEBUG 7712 --- [http-nio-9876-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/marked.js]
+2018-04-26 19:40:09.176 DEBUG 7712 --- [http-nio-9876-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/marked.js]
+2018-04-26 19:40:09.181 DEBUG 7712 --- [http-nio-9876-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/lib/swagger-oauth.js]
+2018-04-26 19:40:09.187 DEBUG 7712 --- [http-nio-9876-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/lib/swagger-oauth.js]
+2018-04-26 19:40:09.198 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/springfox.js]
+2018-04-26 19:40:09.203 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/springfox.js]
+2018-04-26 19:40:09.208 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/css/print.css]
+2018-04-26 19:40:09.254 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/logo_small.png]
+2018-04-26 19:40:09.260 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/logo_small.png]
+2018-04-26 19:40:09.275 DEBUG 7712 --- [http-nio-9876-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/swagger-ui.min.js]
+2018-04-26 19:40:09.501 DEBUG 7712 --- [http-nio-9876-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-resources/configuration/ui]
+2018-04-26 19:40:09.519 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/favicon-32x32.png]
+2018-04-26 19:40:09.550 DEBUG 7712 --- [http-nio-9876-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/favicon-32x32.png]
+2018-04-26 19:40:09.567 DEBUG 7712 --- [http-nio-9876-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/favicon-16x16.png]
+2018-04-26 19:40:09.578 DEBUG 7712 --- [http-nio-9876-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/favicon-16x16.png]
+2018-04-26 19:40:09.635 DEBUG 7712 --- [http-nio-9876-exec-10] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-resources/configuration/ui]
+2018-04-26 19:40:09.665 DEBUG 7712 --- [http-nio-9876-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-resources]
+2018-04-26 19:40:09.682 DEBUG 7712 --- [http-nio-9876-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-resources]
+2018-04-26 19:40:09.696 DEBUG 7712 --- [http-nio-9876-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//v2/api-docs]
+2018-04-26 19:40:09.953 DEBUG 7712 --- [http-nio-9876-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//v2/api-docs]
+2018-04-26 19:40:10.154 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//swagger-resources/configuration/security]
+2018-04-26 19:40:10.170 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//swagger-resources/configuration/security]
+2018-04-26 19:40:38.828 DEBUG 7712 --- [http-nio-9876-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/h2-console]
+2018-04-26 19:40:38.832 DEBUG 7712 --- [http-nio-9876-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/h2-console]
+2018-04-26 19:40:38.949 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/favicon.ico]
+2018-04-26 19:40:38.965 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/favicon.ico]
+2018-04-26 19:40:50.379 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/h2-console]
+2018-04-26 19:40:50.382 DEBUG 7712 --- [http-nio-9876-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/h2-console]
+2018-04-26 19:41:59.648 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/h2-console]
+2018-04-26 19:41:59.651 DEBUG 7712 --- [http-nio-9876-exec-9] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/h2-console]
+2018-04-26 19:42:07.774 DEBUG 7712 --- [http-nio-9876-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=//webjars/springfox-swagger-ui/images/throbber.gif]
+2018-04-26 19:42:07.803 DEBUG 7712 --- [http-nio-9876-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=//webjars/springfox-swagger-ui/images/throbber.gif]
+2018-04-26 19:42:11.935 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/invoice]
+2018-04-26 19:42:12.348 DEBUG 7712 --- [http-nio-9876-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/invoice;payload={
+  "buyer": {
+    "city": "Katowice",
+    "id": 22,
+    "name": "string",
+    "nip": "6521585544",
+    "postcode": "40-100",
+    "streetAndNumber": "Nowa 7"
+  },
+  "date": "2019-04-13",
+  "entryList": [
+    {
+      "grossValue": 899.67,
+      "name": "Apple 6",
+      "nettValue": 730.89,
+      "vat": "EIGHT"
+    }
+  ],
+  "id": 111,
+  "seller": {
+    "city": "Katowice",
+    "id": 22,
+    "name": "string",
+    "nip": "6521585544",
+    "postcode": "40-100",
+    "streetAndNumber": "Nowa 7"
+  }
+}]
+2018-04-26 19:42:41.789 DEBUG 7712 --- [http-nio-9876-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [uri=/h2-console]
+2018-04-26 19:42:41.792 DEBUG 7712 --- [http-nio-9876-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : REQUEST DATA : uri=/h2-console]
+2018-04-26 20:03:28.827  INFO 5820 --- [main] pl.coderstrust.Application               : Starting Application on Virus with PID 5820 (C:\WORK\project-4-bartek-filip-grzegorz\target\classes started by Ave in C:\WORK\project-4-bartek-filip-grzegorz)
+2018-04-26 20:03:28.839  INFO 5820 --- [main] pl.coderstrust.Application               : No active profile set, falling back to default profiles: default
+2018-04-26 20:03:28.979  INFO 5820 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Thu Apr 26 20:03:28 CEST 2018]; root of context hierarchy
+2018-04-26 20:03:31.939  INFO 5820 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3d2c2458] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-26 20:03:32.964  INFO 5820 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9876 (http)
+2018-04-26 20:03:32.999  INFO 5820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-04-26 20:03:33.001  INFO 5820 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-04-26 20:03:33.227  INFO 5820 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-04-26 20:03:33.228  INFO 5820 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4265 ms
+2018-04-26 20:03:33.459  INFO 5820 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-26 20:03:33.466  INFO 5820 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-26 20:03:33.466  INFO 5820 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-26 20:03:33.467  INFO 5820 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-26 20:03:33.467  INFO 5820 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-26 20:03:33.468  INFO 5820 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'logFilter' to: [/*]
+2018-04-26 20:03:33.516 DEBUG 5820 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'logFilter'
+2018-04-26 20:03:33.518 DEBUG 5820 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'logFilter' configured successfully
+2018-04-26 20:03:34.291  INFO 5820 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-26 20:03:34.340  INFO 5820 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-26 20:03:34.509  INFO 5820 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-26 20:03:34.512  INFO 5820 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-04-26 20:03:34.515  INFO 5820 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-04-26 20:03:34.712  INFO 5820 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-26 20:03:34.948  INFO 5820 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-04-26 20:03:35.812  INFO 5820 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-04-26 20:03:35.834  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: company
+2018-04-26 20:03:35.838  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: company
+2018-04-26 20:03:35.849  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoice_entry
+2018-04-26 20:03:35.851  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoice_entry
+2018-04-26 20:03:35.855  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices
+2018-04-26 20:03:35.856  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices
+2018-04-26 20:03:35.859  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices_entry_list
+2018-04-26 20:03:35.862  INFO 5820 --- [main] rmationExtractorJdbcDatabaseMetaDataImpl : HHH000262: Table not found: invoices_entry_list
+2018-04-26 20:03:35.949  INFO 5820 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-26 20:03:37.414  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoicesByDate],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getInvoicesInDateRange(java.time.LocalDate,java.time.LocalDate)
+2018-04-26 20:03:37.418  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices],methods=[GET]}" onto public java.util.List<pl.coderstrust.domain.Invoice> pl.coderstrust.controller.InvoiceController.getAllInvoices()
+2018-04-26 20:03:37.420  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[GET]}" onto public pl.coderstrust.domain.Invoice pl.coderstrust.controller.InvoiceController.getInvoice(int)
+2018-04-26 20:03:37.420  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[PUT]}" onto public void pl.coderstrust.controller.InvoiceController.updateInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 20:03:37.421  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/{id}],methods=[DELETE]}" onto public void pl.coderstrust.controller.InvoiceController.removeInvoice(int)
+2018-04-26 20:03:37.421  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice],methods=[POST]}" onto public void pl.coderstrust.controller.InvoiceController.addInvoice(pl.coderstrust.domain.Invoice)
+2018-04-26 20:03:37.424  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcome],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcome()
+2018-04-26 20:03:37.425  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/incomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncomeVat()
+2018-04-26 20:03:37.426  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/outcomeVat],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getOutcomeVat()
+2018-04-26 20:03:37.426  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoices/income],methods=[GET]}" onto public java.math.BigDecimal pl.coderstrust.controller.TaxCalculatorController.getIncome()
+2018-04-26 20:03:37.436  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-04-26 20:03:37.437  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-04-26 20:03:37.439  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-04-26 20:03:37.442  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-26 20:03:37.444  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-26 20:03:37.813  INFO 5820 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-26 20:03:38.109  INFO 5820 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Thu Apr 26 20:03:28 CEST 2018]; root of context hierarchy
+2018-04-26 20:03:38.195  INFO 5820 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 20:03:38.196  INFO 5820 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-26 20:03:38.246  INFO 5820 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]

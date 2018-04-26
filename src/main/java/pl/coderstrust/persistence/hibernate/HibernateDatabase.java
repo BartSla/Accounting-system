@@ -38,10 +38,7 @@ public class HibernateDatabase implements Database {
 
   @Override
   public void updateInvoice(Invoice invoice) {
-    int id = invoice.getId();
-    removeInvoice(id);
     invoiceRepository.save(invoice);
-    invoice.setId(id);
   }
 
   @Override
