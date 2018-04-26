@@ -16,16 +16,16 @@ public class Invoice {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Company buyer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Company seller;
 
     @Column
     private LocalDate date;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<InvoiceEntry> entryList;
 
     public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {

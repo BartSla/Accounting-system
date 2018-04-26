@@ -11,7 +11,6 @@ import pl.coderstrust.domain.Invoice;
 import pl.coderstrust.persistence.Database;
 
 @Repository
-@Transactional
 @ConditionalOnProperty(name = "pl.coderstrust.database", havingValue = "hibernate")
 public class HibernateDatabase implements Database {
 
@@ -20,7 +19,9 @@ public class HibernateDatabase implements Database {
 
   @Override
   public void saveInvoice(Invoice invoice) {
-    invoiceRepository.save(invoice);
+    if (invoice != getInvoiceById(invoice.getId())) {
+      invoiceRepository.save(invoice);
+    }
   }
 
   @Override
@@ -37,17 +38,21 @@ public class HibernateDatabase implements Database {
 
   @Override
   public void updateInvoice(Invoice invoice) {
+    int id = invoice.getId();
+    removeInvoice(id);
     invoiceRepository.save(invoice);
+    invoice.setId(id);
   }
 
   @Override
   public void removeInvoice(int id) {
-    invoiceRepository.delete(getInvoiceById(id));
+    invoiceRepository.delete(id);
   }
 
   @Override
   public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
-
-    return null;
+    List<Invoice> invoiceListInDateRange = new ArrayList<>();
+    invoiceRepository.findByDateBetween(fromDate, toDate).forEach(invoiceListInDateRange::add);
+    return invoiceListInDateRange;
   }
 }
