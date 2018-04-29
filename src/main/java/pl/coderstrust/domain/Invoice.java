@@ -1,7 +1,9 @@
 package pl.coderstrust.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,7 +17,11 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-
+  
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
+    private String idMongo;
+    
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Company buyer;
 
@@ -41,6 +47,19 @@ public class Invoice {
         this.seller = seller;
         this.id = id;
         this.date = date;
+    }
+
+    public Invoice(String idMongo,Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+        this.idMongo = idMongo;
+        this.buyer = buyer;
+        this.seller = seller;
+        this.id = id;
+        this.date = date;
+        this.entryList = entryList;
+    }
+
+    public String getIdMongo() {
+        return idMongo;
     }
 
     public Invoice() {
