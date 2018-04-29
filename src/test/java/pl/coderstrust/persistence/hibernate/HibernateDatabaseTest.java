@@ -1,9 +1,9 @@
 package pl.coderstrust.persistence.hibernate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.time.LocalDate;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,70 +24,87 @@ public class HibernateDatabaseTest {
   @Autowired
   private Database hibernateDatabase;
 
-  @Autowired
-  InvoiceRepository invoiceRepository;
-
-  InvoiceProvider invoiceProvider = new InvoiceProvider();
-
 
   @Test
   public void shouldSaveInvoiceInDatabase() {
-
+    //given
+    InvoiceProvider invoiceProvider = new InvoiceProvider();
+    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
+    hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
 
     Invoice testInvoice = hibernateDatabase.getInvoiceById(1);
-
+//then
     assertEquals(invoiceProvider.invoice1, testInvoice);
   }
 
   @Test
   public void shouldGetAllInvoices() {
+    //given
+    InvoiceProvider invoiceProvider = new InvoiceProvider();
 
+    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
 
-    assertEquals(2, hibernateDatabase.getAllInvoices().size());
+    //then
+    assertEquals(invoiceProvider.invoice1, hibernateDatabase.getInvoiceById(1));
   }
 
 
   @Test
   public void shouldGetInvoiceById() {
+    //given
+    InvoiceProvider invoiceProvider = new InvoiceProvider();
 
+    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
-
     Invoice testInvoice = hibernateDatabase.getInvoiceById(1);
 
+    //then
     assertEquals(1, testInvoice.getId());
   }
 
   @Test
   public void shouldUpdateInvoiceInDatabase() {
+    //given
+    InvoiceProvider invoiceProvider = new InvoiceProvider();
 
+    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
-
     hibernateDatabase.updateInvoice(invoiceProvider.invoiceToUpdate);
 
-    assertEquals(invoiceProvider.invoiceToUpdate,hibernateDatabase.getInvoiceById(2));
+    //then
+    assertEquals(invoiceProvider.invoiceToUpdate, hibernateDatabase.getInvoiceById(2));
   }
 
   @Test
   public void shouldRemoveInvoiceFromDatabase() {
+    //given
+    InvoiceProvider invoiceProvider = new InvoiceProvider();
 
+    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
     hibernateDatabase.removeInvoice(2);
 
-    assertEquals(1, hibernateDatabase.getAllInvoices().size());
+    //then
+    assertNull(hibernateDatabase.getInvoiceById(2));
   }
 
   @Test
   public void shouldGetOnInvoicesInDataRange() {
+    //given
+    InvoiceProvider invoiceProvider = new InvoiceProvider();
 
+    //when
     hibernateDatabase.saveInvoice(invoiceProvider.invoice1);
     hibernateDatabase.saveInvoice(invoiceProvider.invoice2);
 
-    assertEquals(invoiceProvider.getListOf1Invoices().size(), hibernateDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 2, 2)).size());
+    //then
+    assertEquals(invoiceProvider.getListOf1Invoices().size(), hibernateDatabase
+        .getAllInvoicesInDateRange(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 2, 2)).size());
   }
 }

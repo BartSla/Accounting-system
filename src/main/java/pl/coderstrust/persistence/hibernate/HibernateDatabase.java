@@ -1,12 +1,12 @@
 package pl.coderstrust.persistence.hibernate;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import pl.coderstrust.domain.Invoice;
 import pl.coderstrust.persistence.Database;
 
@@ -19,16 +19,13 @@ public class HibernateDatabase implements Database {
 
   @Override
   public void saveInvoice(Invoice invoice) {
-    if (invoice != getInvoiceById(invoice.getId())) {
       invoiceRepository.save(invoice);
-    }
   }
 
   @Override
   public List<Invoice> getAllInvoices() {
-    List<Invoice> invoiceList = new ArrayList<>();
-    invoiceRepository.findAll().forEach(invoiceList::add);
-    return invoiceList;
+    return StreamSupport.stream(invoiceRepository.findAll().spliterator(), false)
+        .collect(Collectors.toList());
   }
 
   @Override
@@ -48,8 +45,10 @@ public class HibernateDatabase implements Database {
 
   @Override
   public List<Invoice> getAllInvoicesInDateRange(LocalDate fromDate, LocalDate toDate) {
-    List<Invoice> invoiceListInDateRange = new ArrayList<>();
-    invoiceRepository.findByDateBetween(fromDate, toDate).forEach(invoiceListInDateRange::add);
-    return invoiceListInDateRange;
+
+    return StreamSupport
+        .stream(invoiceRepository.findByDateBetween(fromDate, toDate)
+            .spliterator(), false)
+        .collect(Collectors.toList());
   }
 }

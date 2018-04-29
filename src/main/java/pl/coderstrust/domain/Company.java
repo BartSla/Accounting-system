@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Company")
+@Table(name = "Companies")
 @ApiModel(value= "Company", description="Company data")
 public class Company {
 
