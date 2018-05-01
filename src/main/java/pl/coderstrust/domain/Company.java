@@ -3,9 +3,20 @@ package pl.coderstrust.domain;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Companies")
 @ApiModel(value= "Company", description="Company data")
 public class Company {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     private String name;
     private String nip;
     private String streetAndNumber;
@@ -13,8 +24,9 @@ public class Company {
     private String postcode;
 
 
-    public Company(String name, String nip, String streetAndNumber, String city, String postcode) {
+    public Company(  String name, int id, String nip, String streetAndNumber, String city, String postcode) {
         this.name = name;
+        this.id = id;
         this.nip = nip;
         this.streetAndNumber = streetAndNumber;
         this.city = city;
@@ -53,6 +65,7 @@ public class Company {
     public String toString() {
         return "Company{" +
                 "name='" + name + '\'' +
+                ", id='" + id + '\'' +
                 ", nip='" + nip + '\'' +
                 ", streetAndNumber='" + streetAndNumber + '\'' +
                 ", city='" + city + '\'' +
@@ -105,5 +118,11 @@ public class Company {
         this.postcode = postcode;
     }
 
-
+    @ApiModelProperty(value = "Company ID", required = true, example = "22")
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 }

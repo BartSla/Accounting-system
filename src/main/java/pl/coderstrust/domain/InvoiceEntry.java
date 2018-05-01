@@ -5,9 +5,15 @@ import io.swagger.annotations.ApiModelProperty;
 import pl.coderstrust.processing.Vat;
 
 import java.math.BigDecimal;
+import javax.persistence.*;
 
+@Entity
 @ApiModel(value= "Items list", description="List of items")
 public class InvoiceEntry {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
 
     private String name;
     private Vat vat;

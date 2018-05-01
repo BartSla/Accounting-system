@@ -47,6 +47,6 @@ public class InMemoryDatabaseTest {
     public void updateInvoice() throws Exception {
         inMemoryDatabase.saveInvoice(invoiceProvider.invoice);
         inMemoryDatabase.updateInvoice(invoiceProvider.invoice);
-        assertEquals(invoiceProvider.getListOf1Invoices(), inMemoryDatabase.getAllInvoices());
+        assertEquals(invoiceProvider.getListOf1Invoices(), inMemoryDatabase.getAllInvoices() );
     }
 }

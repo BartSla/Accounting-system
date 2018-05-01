@@ -57,8 +57,8 @@ public class InFileDatabaseTest {
         inFileDatabase.saveInvoice(invoiceProvider.invoice2);
         inFileDatabase.saveInvoice(invoiceProvider.invoice3);
         inFileDatabase.saveInvoice(invoiceProvider.invoice4);
-        assertEquals(invoiceProvider.getListOf3Invoices(), inFileDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 30),
-                LocalDate.of(2018, 2, 3)));
+        assertEquals(3, inFileDatabase.getAllInvoicesInDateRange(LocalDate.of(2018, 1, 30),
+                LocalDate.of(2018, 2, 3)).size());
     }
 
     @Test

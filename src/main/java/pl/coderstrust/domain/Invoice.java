@@ -7,19 +7,31 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Invoices")
 @ApiModel(value= "Invoice", description="Sample model of invoice")
 public class Invoice {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
+  
     @JsonIgnore
     @ApiModelProperty(hidden = true)
     private String idMongo;
-
+    
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Company buyer;
+
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Company seller;
-    private int id;
+
+    @Column
     private LocalDate date;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<InvoiceEntry> entryList;
 
     public Invoice(Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
