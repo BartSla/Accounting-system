@@ -3,7 +3,7 @@ package pl.coderstrust.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -49,7 +49,7 @@ public class Invoice {
         this.date = date;
     }
 
-    public Invoice(String idMongo,Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
+    public Invoice(String idMongo, Company buyer, Company seller, int id, LocalDate date, List<InvoiceEntry> entryList) {
         this.idMongo = idMongo;
         this.buyer = buyer;
         this.seller = seller;

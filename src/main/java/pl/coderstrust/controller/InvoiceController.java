@@ -9,6 +9,7 @@ import pl.coderstrust.domain.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+import pl.coderstrust.processing.EmailSenderImpl;
 import pl.coderstrust.processing.InvoiceBook;
 
 import java.time.LocalDate;
@@ -19,6 +20,9 @@ import java.util.List;
 public class InvoiceController {
 
   private InvoiceBook invoiceBook;
+
+  @Autowired
+  private EmailSenderImpl emailSender;
 
   @Autowired
   public InvoiceController(InvoiceBook invoiceBook) {
@@ -93,6 +97,8 @@ public class InvoiceController {
       (value = "Invoice that needs to be added", required = true)
   @RequestBody Invoice invoice) {
     invoiceBook.addNewInvoice(invoice);
+    emailSender.sendEmail("slabiakb@wp.pl", "Invoice Added", "Invoice added to database");
+
   }
 
   @ApiOperation(value = "Get in specific date range",
