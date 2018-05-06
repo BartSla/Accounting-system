@@ -15,15 +15,19 @@ import java.io.FileNotFoundException;
 @RestController
 public class PdfController {
 
+    private InvoiceBook invoiceBook;
+    private PdfService pdfService;
+
     @Autowired
-    private InvoiceBook invoices;
+    public PdfController(InvoiceBook invoiceBook, PdfService pdfService){
+        this.invoiceBook = invoiceBook;
+        this.pdfService = pdfService;
+    }
 
 
     @RequestMapping(value = "/InvoiceToPdf" , method = RequestMethod.GET)
     public String savePdf(@RequestParam Integer id) throws FileNotFoundException, DocumentException {
-        PdfService service = new PdfService();
-        String path = service.savePdf(invoices.getInvoiceById(id));
-        return "File saved in: " + path;
+        return pdfService.savePdf(invoiceBook.getInvoiceById(id));
     }
 
 }
