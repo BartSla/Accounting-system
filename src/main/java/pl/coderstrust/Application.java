@@ -9,14 +9,6 @@ import org.springframework.context.ApplicationContext;
 public class Application {
 
   public static void main(String[] args) {
-      ApplicationContext ctx =  SpringApplication.run(Application.class, args);
-
-    System.out.println("BEANS: ");
-    String [] beans = ctx.getBeanDefinitionNames();
-
-    Arrays.sort(beans);
-    for (String beanName : beans) {
-      System.out.println(beanName);
-    }
+    SpringApplication.run(Application.class, args);
   }
 }
