@@ -5,10 +5,12 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Value;
 import pl.coderstrust.domain.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+import pl.coderstrust.processing.EmailSenderImpl;
 import pl.coderstrust.processing.InvoiceBook;
 
 import java.time.LocalDate;
@@ -18,7 +20,13 @@ import java.util.List;
 @Api(value = "Invoice Controller API", description = "Invoice Controller API")
 public class InvoiceController {
 
+  @Value("${sendTo.email}")
+  String emailTo;
+
   private InvoiceBook invoiceBook;
+
+  @Autowired
+  private EmailSenderImpl emailSender;
 
   @Autowired
   public InvoiceController(InvoiceBook invoiceBook) {
@@ -39,7 +47,7 @@ public class InvoiceController {
     return invoiceBook.getAllInvoices();
   }
 
-  @ApiOperation(value ="Gets invoice with specific ID",
+  @ApiOperation(value = "Gets invoice with specific ID",
       notes = "Return invoice with specific ID available in database")
   @ApiResponses(
       value = {@ApiResponse(code = 200, message = "Successful"),
@@ -93,6 +101,9 @@ public class InvoiceController {
       (value = "Invoice that needs to be added", required = true)
   @RequestBody Invoice invoice) {
     invoiceBook.addNewInvoice(invoice);
+    emailSender.sendEmail(emailTo,  "Invoice Added",
+        invoice.toString() + System.lineSeparator()
+            + "was added to database in " + invoice.getDate());
   }
 
   @ApiOperation(value = "Get in specific date range",
