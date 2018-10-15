@@ -55,12 +55,3 @@ hibenate
 ## API Reference
 Start the application and open the URL for API Documentation http://localhost:8080/swagger-ui.html
 ![Swagger API](link)
-
-## Tests
-We have three different types of tests : JUnit, integrations, and E2E tests.<br/>
-To run e2e tests :<br/>
-**1)** Run main application<br/>
-**2)** Build E2E project from gradle build file ( /e2e/build.gradle ) as separate project. <br/>
-**3)** Enable annotation processing for lombok. <br/>
-![Enable annotations](https://github.com/pio-kol/accouting-system/blob/master/readme/annotatnion.png)
-**4)** Run e2e tests as TestNG.<br/>
