@@ -51,6 +51,7 @@ inMongo
 hibenate
 
 ```
-
 ## API Reference
+
 Start the application and open the URL for API Documentation http://localhost:8080/swagger-ui.html
+![Swagger API](https://github.com/BartSla/Accounting-system/blob/master/readme/swagger.jpg)
